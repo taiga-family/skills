@@ -1,0 +1,23 @@
+# Taiga UI Agent Skills
+
+Agent skills for working with [Taiga UI](https://github.com/taiga-family/taiga-ui) — a set of Angular UI components.
+
+## Installation
+
+Uses [`npx skills`](https://github.com/vercel-labs/skills) — no setup required.
+
+```bash
+# Install a specific skill into your project:
+npx skills add taiga-family/skills --skill write-migration
+
+# Install all skills:
+npx skills add taiga-family/skills --all
+```
+
+Skills are installed into your agent's skills directory and auto-trigger based on context.
+
+## Available skills
+
+| Skill | Description |
+|---|---|
+| [write-migration](./dev/write-migration/SKILL.md) | Write and review Taiga UI schematics migrations |
