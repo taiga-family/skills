@@ -1,5 +1,5 @@
 ---
-name: write-migration
+name: tui-write-migration
 description: >
   Use this skill when writing or reviewing Taiga UI schematics migrations. Covers: analyzing API changes between major
   versions, choosing the right migration utility, writing tests with snapshots, and avoiding common pitfalls. Invoke
