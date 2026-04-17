@@ -21,3 +21,4 @@ Skills are installed into your agent's skills directory and auto-trigger based o
 | Skill | Description |
 |---|---|
 | [tui-write-migration](./dev/tui-write-migration/SKILL.md) | Write and review Taiga UI schematics migrations |
+| [tui-migration](./dev/tui-migration/SKILL.md) | Safely resolve Taiga UI schematics migration TODOs without breaking behavior |
