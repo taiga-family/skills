@@ -62,6 +62,73 @@ When a TODO suggests removing a style import or style package:
 4. Remove the import only if all three checks pass.
 5. If any check is inconclusive, ask the user.
 
+## Documenting uncertain or broken migration points
+
+When encountering migration issues that cannot be resolved immediately, create and maintain a dedicated file
+(e.g., `MIGRATION_ISSUES.md` or `TODO_MIGRATION.md`) to track all uncertain or potentially broken areas.
+
+### When to document instead of fixing immediately
+
+Create an entry in the migration issues file when:
+
+- The TODO suggests removing something, but other code may still depend on it.
+- The only apparent replacement would change behavior, styling, or generated markup.
+- The fix depends on a guess about how an older component, class, or script was intended to work.
+- More than one valid migration path exists and the code does not reveal which one is correct.
+- The TODO is about a deprecated styles or utility package, but class-based or imported styles may still be in use.
+- You need more context than is currently available in the immediate code vicinity.
+- A migration schematic left a comment indicating manual intervention is required.
+
+### Required format for each entry
+
+Each documented issue must include:
+
+1. **File path** - Full relative path to the affected file.
+2. **Line number** - Exact line where the issue occurs.
+3. **Original code** - The code snippet before your attempted fix.
+4. **Issue description** - Clear explanation of what is uncertain or broken.
+5. **Attempted solutions** - What migration approaches you considered and why they may not work.
+6. **Potential impact** - What could break if the wrong fix is applied (runtime, template, styles, build).
+7. **Migration version** - Which Taiga UI version migration this relates to (if known).
+
+### Example entry format
+
+````markdown
+## Issue #<number>: <Brief description>
+
+**File:** `path/to/component.ts`
+**Line:** 42
+**Migration:** v4 -> v5
+
+**Original code:**
+
+```typescript
+// TODO: migrate to new button API
+@Input() mode: 'accent' | 'primary' = 'primary';
+```
+````
+
+**Issue:**
+The old `mode` input was replaced with a new directive-based API, but this component
+uses dynamic binding that may not be compatible with the new approach.
+
+**Attempted solutions:**
+
+- Direct replacement with `tuiAppearance` - unclear if dynamic values work
+- Keeping old API temporarily - requires deprecated module import
+
+**Potential impact:**
+
+- Runtime error if binding fails
+- Visual regression if styling is not applied correctly
+
+### Workflow integration
+
+1. **During initial scan:** Create the migration issues file at the start of the migration session.
+2. **When blocked:** Add an entry before moving to the next TODO.
+3. **Before asking user:** Reference the documented entry in your question.
+4. **After resolution:** Mark the entry as resolved with a brief note about the applied fix.
+
 ## When to ask the user
 
 Ask a clarification question when any of these are true:
