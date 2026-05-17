@@ -47,6 +47,23 @@ authoritative breaking-change information for the entire session.
 - [ ] **Angular**: Update to Angular v19 or higher
 - [ ] **Prettier**: Set `endOfLine` option to `auto` to prevent line ending issues after migration
 
+> **⛔ NEVER use `--legacy-peer-deps`, `--force`, or any flag that bypasses dependency resolution.**
+> These flags silence peer-dependency validation and mask real version conflicts.
+> During a major-version migration — where nearly every Taiga UI package changes its peer
+> requirements — hidden mismatches will cause subtle runtime failures, missing styles,
+> or broken schematics that are extremely hard to trace back to an install-time skip.
+> If `npm install` (or `yarn` / `pnpm install`) fails with a peer-dependency error,
+> treat it as a real conflict that must be resolved explicitly.
+> See the _Troubleshooting → Peer-dependency conflicts_ section for the correct approach.
+>
+> **Do not add `legacy-peer-deps=true` to `.npmrc` either.**
+> If `.npmrc` already contains this setting before the migration begins — that is the
+> project's pre-existing decision; leave it as-is but warn the user that it may hide
+> migration-related conflicts. If `.npmrc` does **not** contain this setting, you are
+> **prohibited** from adding it. Creating or modifying `.npmrc` to work around a peer
+> conflict is the same as passing the CLI flag — it disables validation project-wide
+> and permanently, which is strictly worse.
+
 ## Migration Workflow
 
 ### Phase 1: Run Migration Schematics
@@ -180,6 +197,7 @@ When a TODO suggests removing a style import or style package, follow this algor
 
 - Explore `package.json` of every used Taiga UI package
 - Find their `peerDependencies` and ensure they are installed with versions compatible with constraints from Taiga libraries
+- **Do not use `--legacy-peer-deps`** — it does not exist in Yarn/pnpm and the npm equivalent hides real problems (see above)
 
 #### Problem: Cannot resolve dependency for ng-web-apis, maskito, ng-polymorpheus, or ng-event-plugins
 
@@ -330,9 +348,11 @@ Additionally, ask when:
 - Migration schematics failed or produced unexpected errors
 - The project has custom configurations that may affect migration
 - Step 0 context cannot be determined automatically
+- A peer-dependency conflict cannot be resolved by aligning Taiga UI package versions
 
 ## What Not to Do
 
+- **Do not use `--legacy-peer-deps`, `--force`, or any flag that bypasses dependency resolution, and do not add `legacy-peer-deps=true` to `.npmrc` if it was not already there** — these hide real version conflicts that will break the migration at runtime; resolve conflicts explicitly instead
 - Do not hardcode a fix based only on the TODO text
 - Do not delete deprecated dependencies first and discover breakage later
 - Do not rewrite unrelated code while chasing a migration TODO
