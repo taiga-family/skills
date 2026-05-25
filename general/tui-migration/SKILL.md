@@ -44,25 +44,11 @@ authoritative breaking-change information for the entire session.
 - [ ] **Node.js**: Use Node.js LTS version
 - [ ] **NPM**: Version 10 or higher (or equivalent for yarn/pnpm)
 - [ ] **Current Taiga UI**: Update to the latest version of v{CURRENT_MAJOR} first
-- [ ] **Angular**: Update to Angular v19 or higher
+- [ ] **Angular**: Update to a version compatible with v{NEXT_MAJOR} (check migration guide)
 - [ ] **Prettier**: Set `endOfLine` option to `auto` to prevent line ending issues after migration
 
 > **⛔ NEVER use `--legacy-peer-deps`, `--force`, or any flag that bypasses dependency resolution.**
-> These flags silence peer-dependency validation and mask real version conflicts.
-> During a major-version migration — where nearly every Taiga UI package changes its peer
-> requirements — hidden mismatches will cause subtle runtime failures, missing styles,
-> or broken schematics that are extremely hard to trace back to an install-time skip.
-> If `npm install` (or `yarn` / `pnpm install`) fails with a peer-dependency error,
-> treat it as a real conflict that must be resolved explicitly.
-> See the _Troubleshooting → Peer-dependency conflicts_ section for the correct approach.
->
-> **Do not add `legacy-peer-deps=true` to `.npmrc` either.**
-> If `.npmrc` already contains this setting before the migration begins — that is the
-> project's pre-existing decision; leave it as-is but warn the user that it may hide
-> migration-related conflicts. If `.npmrc` does **not** contain this setting, you are
-> **prohibited** from adding it. Creating or modifying `.npmrc` to work around a peer
-> conflict is the same as passing the CLI flag — it disables validation project-wide
-> and permanently, which is strictly worse.
+> These flags hide real version conflicts that will break at runtime. Resolve conflicts explicitly instead.
 
 ## Migration Workflow
 
@@ -108,16 +94,7 @@ Handle post-schematics TODOs without breaking runtime behavior, template output,
 
 #### TODO Processing Order
 
-Process files in this sequence to minimize broken intermediate states:
-
-1. **Shared modules and barrel files** (`index.ts`, `public-api.ts`) — changes here unblock all consumers
-2. **Services and DI tokens** — no template dependency
-3. **Standalone components** (leaf nodes, no children importing them)
-4. **Feature components** (ordered leaf → root in the dependency tree)
-5. **App root** (`app.module.ts` / `app.config.ts`) — last, after all consumers fixed
-6. **Style entry points** (`styles.scss`, theme files) — after all component styles resolved
-
-**Complete all TODOs in a file before moving to the next one.** If a file cannot be completed, add a Quick Entry to MIGRATION_ISSUES.md and continue.
+Process TODOs starting from shared modules and barrel files (`index.ts`, `public-api.ts`) to unblock consumers, then move to services, components, and finally style entry points. Complete all TODOs in a file before moving to the next one. If a file cannot be completed, add a Quick Entry to MIGRATION_ISSUES.md and continue.
 
 #### TODO Classification → Required Question Template
 
@@ -161,26 +138,6 @@ Process files in this sequence to minimize broken intermediate states:
    - Run the narrowest available check for the affected slice when possible
    - If the change still feels ambiguous after verification, do not expand the patch; ask the user
 
-#### Style Package Removal — Search Algorithm
-
-When a TODO suggests removing a style import or style package, follow this algorithm:
-
-1. **List exported style files:** Open `node_modules/<package>/` and list all exported `.css` / `.scss` files
-2. **Extract class selectors:** Run `grep -E '\.[a-z][a-zA-Z0-9_-]+'` across those files to get all class names
-3. **Search project for each class:**
-   ```bash
-   grep -r --include="*.html" --include="*.scss" --include="*.ts" --include="*.less" --include="*.css" "<className>" src/
-   ```
-4. **Search for attribute selectors** that the package may define:
-   ```bash
-   grep -r 'appearance=' src/   # example for appearance-based styles
-   grep -r 'tuiClass=' src/     # other common attribute patterns
-   ```
-5. **Decision:**
-   - If **zero matches** → safe to remove the import
-   - If **any match found** → document in MIGRATION_ISSUES.md, do not remove
-6. **Check re-exports:** Verify whether the replacement package re-exports the same CSS classes
-
 ### Phase 4: Troubleshooting
 
 #### Problem: TypeScript errors TS6133 - variable is declared but its value is never read
@@ -193,11 +150,7 @@ When a TODO suggests removing a style import or style package, follow this algor
 
 #### Problem: Yarn users or legacy-peer-deps workaround needed
 
-**Solution:** Taiga UI depends on many Taiga Family packages. Yarn and NPM with `legacy-peer-deps` enabled do not automatically install transitive peer dependencies. You should manage them manually:
-
-- Explore `package.json` of every used Taiga UI package
-- Find their `peerDependencies` and ensure they are installed with versions compatible with constraints from Taiga libraries
-- **Do not use `--legacy-peer-deps`** — it does not exist in Yarn/pnpm and the npm equivalent hides real problems (see above)
+**Solution:** Taiga UI depends on many Taiga Family packages. Yarn and pnpm do not automatically install transitive peer dependencies. Manually check each Taiga UI package's `package.json` and install missing peer dependencies.
 
 #### Problem: Cannot resolve dependency for ng-web-apis, maskito, ng-polymorpheus, or ng-event-plugins
 
