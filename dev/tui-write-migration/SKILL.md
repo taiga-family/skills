@@ -52,7 +52,7 @@ Before writing any code, explore what already exists:
 2. Check `vN/steps/migrate-templates.ts` — to see which utilities are registered for this version
 3. Look at existing migrations in `vN/steps/templates/` as reference
 
-Pick the simplest utility that covers the case. A custom function in `vN/steps/templates/` is only justified when no existing utility fits.
+**Prefer a declarative entry in `vN/steps/constants/` over a new function.** Those files are lists consumed by generic runners, so most renames, moves, removals, and TODO comments are one entry — far more reviewable than bespoke code. A custom function in `vN/steps/templates/` is a last resort; a case that seems to need one because it does two things at once (e.g. leave a TODO **and** remove an attribute) usually splits into two declarative entries instead.
 
 ## Step 4: Write test
 
@@ -72,6 +72,26 @@ Run tests: `npx jest schematic-migrate-<name> --updateSnapshot`
 
 Run all vN tests: `npx jest ng-update/vN`
 
+### Use snapshots, not manual assertions
+
+Assert output only through `migrate()` snapshots. Do **not** hand-write `expect(result).toContain(...)` / `.not.toContain(...)` on the migrated string. A migration rewrites a whole file, so whole-file snapshot comparison is the point; substring peeks under-specify it — they pass on corrupted whitespace, a dropped `}`, a mangled unrelated attribute — and couple the test to internal output fragments. `migrate()` also removes the boilerplate (`runMigration` + reading `host` files) that manual assertions drag in.
+
+Caveat, not a loophole: `createMigration` snapshots only files the migration **changed** (`before !== after`), so a snapshot cannot express "this input was left unchanged". Do not reach for manual assertions to cover that gap. A no-op test on input the migration deliberately ignores (malformed/empty expressions, unrelated tags) is rarely worth its place and is the lone odd test in an otherwise snapshot-based file — cover the migration's real transformations with snapshots and drop the no-op guard.
+
+### Comment discipline (tests and migration code)
+
+The test title and the snapshot are the spec — they already state intent and capture the exact output. Do **not** add comments on top that repeat them. Keep comments scarce; reviewers push back on narration.
+
+Remove (do not write) comments that:
+
+- **Restate the test title** — `it('keeps [src] literal without a TODO')` needs no `// a bound literal is not a SafeResourceUrl, so no TODO` above it.
+- **Narrate the snapshot** — "the snapshot's `After` shows the inserted comment", "must show `track $index`". Whatever the snapshot proves, read the snapshot.
+- **Reference the review process** — never mention a reviewer or a bot in a permanent comment (`// Guards Gemini's fix`, `// per review`). That is throwaway context, not code documentation.
+
+Keep only comments that explain genuinely non-obvious **intent or a gotcha** the code cannot show on its own — e.g. why a regex is split to avoid super-linear backtracking, why an attribute intentionally stays on the wrapper instead of moving, why a value is deliberately skipped. A one-line rationale with a docs link is fine.
+
+Traceability (an issue id like `#13823`) belongs in the **test title** or the **commit message**, not in a narration comment.
+
 ## Step 5: Know the pitfalls
 
 The pipeline in `vN/index.ts` runs TS migrations first, then template migrations, then warnings last. Read the file to understand the full order before writing a new migration.
@@ -89,9 +109,11 @@ Key things to watch for:
 - [ ] Checked previous version API (exports, demo usage, deprecated annotations)
 - [ ] Checked current version API (new name, new package, new behavior)
 - [ ] Verified no existing migration covers this
-- [ ] Chose the simplest utility that works
+- [ ] Preferred a declarative `constants/` entry; a bespoke `templates/` function only if nothing fit
 - [ ] Handled edge cases: static attribute, dynamic binding, false value
 - [ ] Wrote test with representative cases
+- [ ] Assertions via `migrate()` snapshots only — no manual `toContain`/`not.toContain`, no no-op guard tests (see Use snapshots)
+- [ ] No narration comments — titles/snapshots carry intent; kept only non-obvious "why" notes (see Comment discipline)
 - [ ] Ran `--updateSnapshot` and verified snapshots are correct
 - [ ] Ran all vN tests to check for regressions
 - [ ] Updated PR description with before/after table
