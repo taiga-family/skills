@@ -76,7 +76,7 @@ Run all vN tests: `npx jest ng-update/vN`
 
 Assert output only through `migrate()` snapshots. Do **not** hand-write `expect(result).toContain(...)` / `.not.toContain(...)` on the migrated string. A migration rewrites a whole file, so whole-file snapshot comparison is the point; substring peeks under-specify it — they pass on corrupted whitespace, a dropped `}`, a mangled unrelated attribute — and couple the test to internal output fragments. `migrate()` also removes the boilerplate (`runMigration` + reading `host` files) that manual assertions drag in.
 
-Caveat, not a loophole: `createMigration` snapshots only files the migration **changed** (`before !== after`), so a snapshot cannot express "this input was left unchanged". Do not reach for manual assertions to cover that gap. A no-op test on input the migration deliberately ignores (malformed/empty expressions, unrelated tags) is rarely worth its place and is the lone odd test in an otherwise snapshot-based file — cover the migration's real transformations with snapshots and drop the no-op guard.
+Caveat, not a loophole: `createMigration` snapshots only files **changed** by the migration (`before !== after`), so a snapshot cannot express "this input was left unchanged". Do not reach for manual assertions to cover that gap. A no-op test on input the migration deliberately ignores (malformed/empty expressions, unrelated tags) is rarely worth its place and is the lone odd test in an otherwise snapshot-based file — cover the migration's real transformations with snapshots and drop the no-op guard.
 
 ### Comment discipline (tests and migration code)
 
