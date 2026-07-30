@@ -17,6 +17,27 @@ Use whichever approach is available:
   - `browse-exports.sh <path>` — fetch a file via `gh` CLI
   - `search-symbol.sh <EntityName>` — find which package exported a symbol
 
+## Coverage triage: which entities are worth migrating
+
+You can't directly tell which removed entities real projects depend on. **Documentation presence is the proxy for usage**: anything Taiga advertised through its own demo/docs is the non-negotiable milestone — cover it ~100%. Entities that were never documented are far more likely to be unused (or used only by someone digging through internals) and can wait.
+
+Work from a list of **names** that exist in `v{N-1}.x` but not in `main` — just names. Do not pull replacement details until a name clears triage; that keeps context clean.
+
+For each name, decide coverage by demo presence, searching **twice**:
+
+1. **In `projects/demo` on `v{N-1}.x`?**
+   `git grep -nE '\bEntityName\b' v{N-1}.x -- projects/demo`
+   Found → advertised → cover 100%. Now load context and work out what → what.
+2. **Not found → check the commit that introduced it** (documented at birth, later hidden from docs but kept in code — e.g. a deprecated component quietly dropped from docs once an alternative shipped):
+   `git log --reverse --oneline -S EntityName -- projects | head -1` → take that SHA
+   `git grep -nE '\bEntityName\b' <sha> -- projects/demo`
+   Found → still advertised → cover 100%.
+3. **Neither search finds it** → low usage likelihood; judge by shape:
+   - Utility with a clear, standalone-usable signature → worth migrating.
+   - Internal class with no obvious standalone use → defer until requested; don't migrate speculatively.
+
+This decides *whether* to cover an entity. The Step 2 **Priority** table decides *how hard* to try for the ones you keep (usage kind: imports/template > inject > internal).
+
 ## Step 1: Analyze the change
 
 Before writing a migration, answer these questions:
@@ -28,6 +49,8 @@ Before writing a migration, answer these questions:
 
 ## Step 2: Choose the migration strategy
 
+For an entity that passed triage, pick how to migrate it:
+
 | Situation                                                        | Strategy                                                        |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | Simple 1:1 rename or package move                                | Auto-migrate using an existing constant-driven utility          |
@@ -36,13 +59,13 @@ Before writing a migration, answer these questions:
 | Entity removed, no replacement needed                            | Remove the import automatically, no TODO needed                 |
 | Entity removed, unclear how to work without it                   | Leave a TODO comment explaining the situation                   |
 
-### Priority
+### Priority (effort ordering — secondary to triage)
 
-Focus on what impacts users most:
+Coverage is decided by the triage above (doc presence). This ranking only orders **effort among entities that already passed triage** — never use it to drop a documented entity (a type-only import of a documented type is still 100%, not "low priority").
 
 1. **High priority**: `@Component({ imports: [...] })` + template inputs/outputs (directives, pipes, components)
 2. **Medium priority**: `inject()` calls, constructor injection, `viewChild` references
-3. **Low priority**: Internal/private API usage, edge cases, type-only imports
+3. **Low priority**: internal/private API usage, edge cases, type-only imports of undocumented entities
 
 ## Step 3: Choose the migration utility
 
@@ -106,6 +129,7 @@ Key things to watch for:
 
 ## Checklist before PR
 
+- [ ] Triaged by doc presence (demo on v{N-1}.x + creation commit); documented entities covered 100%
 - [ ] Checked previous version API (exports, demo usage, deprecated annotations)
 - [ ] Checked current version API (new name, new package, new behavior)
 - [ ] Verified no existing migration covers this
