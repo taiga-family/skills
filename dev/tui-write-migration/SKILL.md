@@ -54,10 +54,13 @@ For an entity that passed triage, pick how to migrate it:
 | Situation                                                        | Strategy                                                        |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | Simple 1:1 rename or package move                                | Auto-migrate using an existing constant-driven utility          |
+| Target symbol is a **barrel array** (`readonly [...]`)           | Rename/move as usual **and set `spreadInModule: true`** (see note) |
 | Entity moved to a legacy package, migration is complex/ambiguous | Auto-move the import + leave a TODO comment for manual steps    |
 | Entity removed, replacement exists but API differs significantly | Leave a TODO comment explaining what to use instead             |
 | Entity removed, no replacement needed                            | Remove the import automatically, no TODO needed                 |
 | Entity removed, unclear how to work without it                   | Leave a TODO comment explaining the situation                   |
+
+**Barrel arrays need a spread in NgModule.** If the `to`-symbol is a barrel array in the target major (`declare const X: readonly [...]`), set `spreadInModule: true`. `@NgModule.imports` is typed `any[] | Type<any> | ModuleWithProviders<{}>`, so a `readonly [...]` tuple is not assignable and raises `TS2322` — which breaks the whole module and cascades into `NG8001/NG8002/NG8004` for every component declared there. Standalone `@Component.imports` accepts a `ReadonlyArray`, so it must **not** be spread — the `inModule` guard handles that automatically. Verify the **actual export shape in the target branch**: `declare const X: readonly [...]` is a barrel (needs the spread), `declare class X` is a single class (spreading it throws `TS2488`). This is invisible in standalone-only demos, which is exactly why it slips past demo-based checks.
 
 ### Priority (effort ordering — secondary to triage)
 
@@ -95,6 +98,15 @@ Run tests: `npx jest schematic-migrate-<name> --updateSnapshot`
 
 Run all vN tests: `npx jest ng-update/vN`
 
+### Barrel and kind-changing rules: cover NgModule and re-migration
+
+If the `to`-target is a barrel array (or the rule otherwise changes a node's kind), the test **must** include:
+
+- a `@NgModule({imports: [...]})` case (not just standalone) — the spread only matters under `@NgModule`;
+- a **re-migration** case where the array already holds the spread (`imports: [...X, LegacyModule]`).
+
+A single-element array on a fresh run passes even when the multi-element / re-run case crashes — that gap is exactly how barrel-spread and node-kind bugs reach production.
+
 ### Use snapshots, not manual assertions
 
 Assert output only through `migrate()` snapshots. Do **not** hand-write `expect(result).toContain(...)` / `.not.toContain(...)` on the migrated string. A migration rewrites a whole file, so whole-file snapshot comparison is the point; substring peeks under-specify it — they pass on corrupted whitespace, a dropped `}`, a mangled unrelated attribute — and couple the test to internal output fragments. `migrate()` also removes the boilerplate (`runMigration` + reading `host` files) that manual assertions drag in.
@@ -126,6 +138,7 @@ Key things to watch for:
 - **Remove vs warn are mutually exclusive** — removing an import prevents the warning from firing. Choose one: either remove silently or warn with a TODO, not both.
 - **Dynamic template values** — `[attr]="variable"` needs a conditional expression, not a static replacement. Otherwise it breaks runtime behavior.
 - **Attribute removal utilities typically remove both static and dynamic forms** — use `filterFn` if you need different handling for `attr` vs `[attr]="expr"`.
+- **Kind-changing text replacements break re-migration.** Replacing an identifier reference with text of a _different node kind_ (`...Name` → `SpreadElement`, `provideTaiga()` → `CallExpression`) via `replaceWithText` corrupts ts-morph's tree diff (`The children of the old and new trees were expected to have the same count`) when the file _already_ contains that construct — a re-run, or a partially-migrated codebase. Detect when the reference is already wrapped (e.g. its parent is a `SpreadElement`) and replace only the inner identifier, preserving the node kind.
 
 ## Checklist before PR
 
@@ -135,6 +148,7 @@ Key things to watch for:
 - [ ] Verified no existing migration covers this
 - [ ] Preferred a declarative `constants/` entry; a bespoke `templates/` function only if nothing fit
 - [ ] Handled edge cases: static attribute, dynamic binding, false value
+- [ ] Barrel `to`-target: set `spreadInModule`, verified export shape in the target branch, tested `@NgModule` + re-migration (already-spread) cases
 - [ ] Wrote test with representative cases
 - [ ] Assertions via `migrate()` snapshots only — no manual `toContain`/`not.toContain`, no no-op guard tests (see Use snapshots)
 - [ ] No narration comments — titles/snapshots carry intent; kept only non-obvious "why" notes (see Comment discipline)
