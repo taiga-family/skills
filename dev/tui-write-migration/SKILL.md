@@ -17,6 +17,27 @@ Use whichever approach is available:
   - `browse-exports.sh <path>` — fetch a file via `gh` CLI
   - `search-symbol.sh <EntityName>` — find which package exported a symbol
 
+## Coverage triage: which entities are worth migrating
+
+You can't directly tell which removed entities real projects depend on. **Documentation presence is the proxy for usage**: anything Taiga advertised through its own demo/docs is the non-negotiable milestone — cover it ~100%. Entities that were never documented are far more likely to be unused (or used only by someone digging through internals) and can wait.
+
+Work from a list of **names** that exist in `v{N-1}.x` but not in `main` — just names. Do not pull replacement details until a name clears triage; that keeps context clean.
+
+For each name, decide coverage by demo presence, searching **twice**:
+
+1. **In `projects/demo` on `v{N-1}.x`?**
+   `git grep -nE '\bEntityName\b' v{N-1}.x -- projects/demo`
+   Found → advertised → cover 100%. Now load context and work out what → what.
+2. **Not found → check the commit that introduced it** (documented at birth, later hidden from docs but kept in code — e.g. a deprecated component quietly dropped from docs once an alternative shipped):
+   `git log --reverse --oneline -S EntityName -- projects | head -1` → take that SHA
+   `git grep -nE '\bEntityName\b' <sha> -- projects/demo`
+   Found → still advertised → cover 100%.
+3. **Neither search finds it** → low usage likelihood; judge by shape:
+   - Utility with a clear, standalone-usable signature → worth migrating.
+   - Internal class with no obvious standalone use → defer until requested; don't migrate speculatively.
+
+This decides *whether* to cover an entity. The Step 2 **Priority** table decides *how hard* to try for the ones you keep (usage kind: imports/template > inject > internal).
+
 ## Step 1: Analyze the change
 
 Before writing a migration, answer these questions:
@@ -28,21 +49,26 @@ Before writing a migration, answer these questions:
 
 ## Step 2: Choose the migration strategy
 
+For an entity that passed triage, pick how to migrate it:
+
 | Situation                                                        | Strategy                                                        |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | Simple 1:1 rename or package move                                | Auto-migrate using an existing constant-driven utility          |
+| Target symbol is a **barrel array** (`readonly [...]`)           | Rename/move as usual **and set `spreadInModule: true`** (see note) |
 | Entity moved to a legacy package, migration is complex/ambiguous | Auto-move the import + leave a TODO comment for manual steps    |
 | Entity removed, replacement exists but API differs significantly | Leave a TODO comment explaining what to use instead             |
 | Entity removed, no replacement needed                            | Remove the import automatically, no TODO needed                 |
 | Entity removed, unclear how to work without it                   | Leave a TODO comment explaining the situation                   |
 
-### Priority
+**Barrel arrays need a spread in NgModule.** If the `to`-symbol is a barrel array in the target major (`declare const X: readonly [...]`), set `spreadInModule: true`. `@NgModule.imports` is typed `any[] | Type<any> | ModuleWithProviders<{}>`, so a `readonly [...]` tuple is not assignable and raises `TS2322` — which breaks the whole module and cascades into `NG8001/NG8002/NG8004` for every component declared there. Standalone `@Component.imports` accepts a `ReadonlyArray`, so it must **not** be spread — the `inModule` guard handles that automatically. Verify the **actual export shape in the target branch**: `declare const X: readonly [...]` is a barrel (needs the spread), `declare class X` is a single class (spreading it throws `TS2488`). This is invisible in standalone-only demos, which is exactly why it slips past demo-based checks.
 
-Focus on what impacts users most:
+### Priority (effort ordering — secondary to triage)
+
+Coverage is decided by the triage above (doc presence). This ranking only orders **effort among entities that already passed triage** — never use it to drop a documented entity (a type-only import of a documented type is still 100%, not "low priority").
 
 1. **High priority**: `@Component({ imports: [...] })` + template inputs/outputs (directives, pipes, components)
 2. **Medium priority**: `inject()` calls, constructor injection, `viewChild` references
-3. **Low priority**: Internal/private API usage, edge cases, type-only imports
+3. **Low priority**: internal/private API usage, edge cases, type-only imports of undocumented entities
 
 ## Step 3: Choose the migration utility
 
@@ -71,6 +97,15 @@ Look at existing tests in `vN/tests/` for the exact imports and structure — th
 Run tests: `npx jest schematic-migrate-<name> --updateSnapshot`
 
 Run all vN tests: `npx jest ng-update/vN`
+
+### Barrel and kind-changing rules: cover NgModule and re-migration
+
+If the `to`-target is a barrel array (or the rule otherwise changes a node's kind), the test **must** include:
+
+- a `@NgModule({imports: [...]})` case (not just standalone) — the spread only matters under `@NgModule`;
+- a **re-migration** case where the array already holds the spread (`imports: [...X, LegacyModule]`).
+
+A single-element array on a fresh run passes even when the multi-element / re-run case crashes — that gap is exactly how barrel-spread and node-kind bugs reach production.
 
 ### Use snapshots, not manual assertions
 
@@ -103,14 +138,17 @@ Key things to watch for:
 - **Remove vs warn are mutually exclusive** — removing an import prevents the warning from firing. Choose one: either remove silently or warn with a TODO, not both.
 - **Dynamic template values** — `[attr]="variable"` needs a conditional expression, not a static replacement. Otherwise it breaks runtime behavior.
 - **Attribute removal utilities typically remove both static and dynamic forms** — use `filterFn` if you need different handling for `attr` vs `[attr]="expr"`.
+- **Kind-changing text replacements break re-migration.** Replacing an identifier reference with text of a _different node kind_ (`...Name` → `SpreadElement`, `provideTaiga()` → `CallExpression`) via `replaceWithText` corrupts ts-morph's tree diff (`The children of the old and new trees were expected to have the same count`) when the file _already_ contains that construct — a re-run, or a partially-migrated codebase. Detect when the reference is already wrapped (e.g. its parent is a `SpreadElement`) and replace only the inner identifier, preserving the node kind.
 
 ## Checklist before PR
 
+- [ ] Triaged by doc presence (demo on v{N-1}.x + creation commit); documented entities covered 100%
 - [ ] Checked previous version API (exports, demo usage, deprecated annotations)
 - [ ] Checked current version API (new name, new package, new behavior)
 - [ ] Verified no existing migration covers this
 - [ ] Preferred a declarative `constants/` entry; a bespoke `templates/` function only if nothing fit
 - [ ] Handled edge cases: static attribute, dynamic binding, false value
+- [ ] Barrel `to`-target: set `spreadInModule`, verified export shape in the target branch, tested `@NgModule` + re-migration (already-spread) cases
 - [ ] Wrote test with representative cases
 - [ ] Assertions via `migrate()` snapshots only — no manual `toContain`/`not.toContain`, no no-op guard tests (see Use snapshots)
 - [ ] No narration comments — titles/snapshots carry intent; kept only non-obvious "why" notes (see Comment discipline)
