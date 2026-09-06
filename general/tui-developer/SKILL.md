@@ -1,11 +1,12 @@
 ---
 name: tui-developer
 description: >
-  Use this skill when building an Angular application or UI with Taiga UI (`@taiga-ui/*`) — scaffolding an app,
-  creating components, building forms and inputs, wiring validation, opening dialogs and notifications, theming
-  and dark mode. It teaches the durable method and architecture for working with Taiga UI and how to verify what
-  you generate; it deliberately delegates exact component APIs to the always-fresh live source (the Taiga UI MCP
-  server or `llms-full.txt`), because Taiga UI evolves quickly and model recall is usually a major version behind.
+  Build Angular apps and UI with Taiga UI (`@taiga-ui/*`). Use when a project depends on or imports `@taiga-ui/*`,
+  when a template contains `tui*` selectors/directives or `<tui-root>` / `provideTaiga`, or when asked to scaffold
+  a Taiga app, create components, build forms and inputs, wire validation, open dialogs and notifications, or set
+  up theming and dark mode. Teaches the durable method, architecture, and verification workflow, and deliberately
+  delegates exact component APIs, imports, and selectors to the always-fresh live source (the Taiga UI MCP server
+  or `llms-full.txt`) because Taiga UI evolves quickly and model recall is usually a major version behind.
 ---
 
 ## What this skill is (and is not)
@@ -22,17 +23,22 @@ over anything baked into this skill.**
 > The single most common failure is generating Taiga UI code from memory that reflects an older major or an
 > invented API. Everything below exists to prevent that.
 
-## Step 0 — Establish the live source of truth (do this first)
+## Step 0 — Pin the version and the live source of truth (do this first)
 
-Before writing any Taiga UI code, wire up the authoritative reference for the *installed* version:
+Model recall of Taiga UI is usually a major version behind, so before writing any code:
 
-1. **If a Taiga UI MCP server is available**, call its overview tool first (import map, code-generation checklist,
-   common mistakes), then its list/example tools to pull the exact current API of each component you use.
-2. **Otherwise** read the project's `llms-full.txt` (`https://taiga-ui.dev/llms-full.txt`, or the `/next` variant
-   for the upcoming major) — the same content the MCP indexes.
-3. Only if neither is reachable, fall back to `references/` (method) and `references/v5/` (concrete facts).
-4. **Confirm the owning package for every symbol you import.** Never invent an import path, token, pipe, or API.
-   If a live source and this skill disagree, the live source wins.
+1. **Detect the installed major.** Read the project's `package.json` (or run `npm ls @taiga-ui/core @taiga-ui/kit`)
+   to see which `@taiga-ui/*` versions are actually present, and branch on it — the wiring and APIs differ across
+   majors (v4 configured the library differently from v5). If Taiga isn't installed yet, you're scaffolding — go
+   to [setup.md](references/setup.md).
+2. **Establish the authoritative reference for that version.** If a Taiga UI MCP server is available, call its
+   overview tool first (import map, code-generation checklist, common mistakes), then its list/example tools for
+   the exact current API of each component you use. Otherwise read the project's `llms-full.txt`
+   (`https://taiga-ui.dev/llms-full.txt`, or the `/next` variant for the upcoming major). Only if neither is
+   reachable, fall back to `references/` (method) and the version-matched `references/v5/` (concrete facts).
+3. **Confirm the owning package for every symbol you import.** Verify against the live source before asserting any
+   exact component name, import path, selector, token, input/output, or version-specific behaviour — never invent
+   one. If a live source and this skill disagree, the live source wins.
 
 ## Architecture (the shape — confirm exact names live)
 
@@ -47,6 +53,24 @@ Before writing any Taiga UI code, wire up the authoritative reference for the *i
 - **The app is wrapped in a root component**; portalled UI (dialogs, dropdowns, hints, notifications) renders into
   it. **One root provider** wires the library. The setup schematic sets both up.
 - **Dynamic content** (dialog bodies, dropdown content) flows through Polymorpheus (`@taiga-ui/polymorpheus`).
+
+## Capability map (intent → family; confirm exact names live)
+
+Pick by behaviour, not by looks. This maps a need to the **family** to reach for; get the exact selector, import,
+and package for that family from the live source (Step 0) before writing markup.
+
+| Need | Reach for (confirm exact names live) |
+|---|---|
+| Single-line text / number / masked input | textfield wrapper + a `tui*` control directive on a native `<input>` |
+| Multi-line input | textfield wrapper + the textarea control directive |
+| Pick one from a list / autocomplete | a select / combobox control + a data-list dropdown |
+| On/off toggle | a checkbox or switch CVA directive (driven through a form control) |
+| One-of-many choice | a radio group or a segmented control |
+| Button / async action | the button directive (+ the loading directive for pending state) |
+| Modal / side sheet with custom content | the dialog service + Polymorpheus content |
+| Ask the user to confirm | a confirm dialog token opened through the dialog service |
+| Transient success / error message | the notification service (an injected service — **not** an alert-by-analogy) |
+| Dark / light theme | the dark-mode token the root provider syncs to the theme attribute |
 
 ## Building: the workflow
 
@@ -64,11 +88,13 @@ Before writing any Taiga UI code, wire up the authoritative reference for the *i
 - [pitfalls.md](references/pitfalls.md) — the anti-hallucination checklist (durable categories).
 - [v5/facts.md](references/v5/facts.md) — **version-scoped** concrete facts for Taiga UI v5 (offline safety net).
 
-## Angular conventions (version-independent)
+## Angular fundamentals (compose, don't re-teach)
 
-Standalone components; `ChangeDetectionStrategy.OnPush`; reactive forms; signals for local state and `computed`
-for derived; logic in `.ts`, template in `.html`, styles in the stylesheet; `[class.x]` / `[style.p]` not
-`ngClass` / `ngStyle`.
+This skill is **Taiga-specific** and assumes idiomatic modern Angular: standalone components,
+`ChangeDetectionStrategy.OnPush`, reactive forms, signals for local state and `computed` for derived, logic in
+`.ts` / template in `.html` / styles in the stylesheet, and `[class.x]` / `[style.p]` over `ngClass` / `ngStyle`.
+It does **not** re-teach these — pair it with a general Angular skill (e.g. `angular-developer`) for framework
+fundamentals, and detect the project's Angular major the same way you detect the Taiga major (Step 0).
 
 ## Maintenance contract
 

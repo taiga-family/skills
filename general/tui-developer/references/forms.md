@@ -5,9 +5,11 @@ names from the live source (or [v5/facts.md](v5/facts.md) offline).
 
 ## The form-field shape
 
-Every text-like field is the same shape: a **textfield wrapper**, an optional label, a **native element carrying a
-`tui*` control directive**, and a sibling **error element** bound to the control. The barrel arrays for the field
-types bring the wrapper + label with them — import the whole symbol, not "just the class".
+Every text-like field is the same shape: a **required textfield wrapper** enclosing a **native element that carries
+a `tui*` control directive**, an optional label, and a sibling **error element** bound to the control. The control
+directive does **not** work outside its wrapper — render and import **both** the wrapper and the directive (they
+are separate symbols). Confirm the exact names from the live source; for v5 they're `<tui-textfield>` +
+`<input tuiInput>`, both from `@taiga-ui/core`.
 
 ## Bind controls through Angular forms — never the native attribute
 
