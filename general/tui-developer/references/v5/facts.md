@@ -14,6 +14,7 @@ MCP / `llms-full.txt`.
 - Importing a symbol from the wrong package (see boundaries below) — the #1 build error, and a wrong guess looks plausible.
 - `TuiAlertService` for notifications — it *compiles*, then throws `NullInjectorError` (blank page). Use `TuiNotificationService`.
 - `<input tuiTextfield>` as the text control, a `tuiFieldError` pipe, or a `*_DATA` dialog token — removed / never existed in v5.
+- `TuiSlider` from `@taiga-ui/kit` — it lives in **core** (kit only has the composite `TuiInputSlider`); wrong-package build error.
 - Native `[checked]` / `[value]` on a CVA control — renders it disabled.
 - v4 setup (`NG_EVENT_PLUGINS` / `provideAnimations()`) instead of `provideTaiga()`.
 
@@ -37,9 +38,11 @@ MCP / `llms-full.txt`.
 
 - **core:** `TuiButton`, `TuiIcon`, `TuiLink`, `TuiError`, `TuiTextfield` (the `<tui-textfield>` wrapper),
   `TuiInput`, `TuiLabel`, `TuiCheckbox`, `TuiRadio`, `TuiDataList`, `TuiDialogService`, `TuiNotificationService`,
-  `provideTaiga`, `TuiRoot`, `tuiValidationErrorsProvider`, `TUI_DARK_MODE`, `TuiButtonX` (close "X").
+  `provideTaiga`, `TuiRoot`, `tuiValidationErrorsProvider`, `TUI_DARK_MODE`, `TuiButtonX` (close "X"),
+  `TuiSlider` (the range `<input type="range" tuiSlider>` — **not** kit).
 - **kit:** the `tuiInput*` family, `TuiSelect`, `TuiComboBox`, `TuiTextarea`, `TuiInputDate`, `TuiChevron`,
-  `TuiDataListWrapper`, `TuiButtonLoading`, `TuiSwitch`, `TuiSegmented`, `TuiTabs`, `TUI_CONFIRM`, `TuiConfirmData`.
+  `TuiDataListWrapper`, `TuiButtonLoading`, `TuiSwitch`, `TuiSegmented`, `TuiTabs`, `TuiProgressBar`, `TUI_CONFIRM`,
+  `TuiConfirmData`.
 - **cdk:** `TuiControl`, `TuiValueTransformer`, `TuiDay`, `TuiTime`, `tuiMarkControlAsTouchedAndValidate`.
 - **polymorpheus (`@taiga-ui/polymorpheus`):** `PolymorpheusComponent`, `injectContext`, `PolymorpheusContent`.
 
@@ -55,6 +58,15 @@ MCP / `llms-full.txt`.
 - Button `[loading]` needs `TuiButtonLoading` (**kit**) in addition to `TuiButton`.
 - `tuiCheckbox` / `tuiSwitch` / `tuiSelect` etc. are CVA directives — bind `[(ngModel)]` / `formControl`, never
   `[checked]` / `[value]` (native attribute → renders disabled).
+
+## Sliders & progress
+
+- Range slider: **`TuiSlider` (core)** — `<input type="range" tuiSlider [max]="100" [(ngModel)]="value" />`.
+  Importing `TuiSlider` from `@taiga-ui/kit` is a build error (`has no exported member 'TuiSlider'`); kit only
+  exports the composite `TuiInputSlider` (labeled input + slider). `TuiSlider` / `TuiInput` are barrel arrays —
+  add them straight to `imports` (Angular flattens them).
+- Progress / seek display: **`TuiProgressBar` (kit)** on a native element —
+  `<progress tuiProgressBar [max]="100" [value]="value">`.
 
 ## Dialogs, confirms, notifications
 
