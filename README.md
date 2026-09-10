@@ -8,7 +8,7 @@ Uses [`npx skills`](https://github.com/vercel-labs/skills) — no setup required
 
 ```bash
 # Install a specific skill into your project:
-npx skills add taiga-family/skills --skill tui-write-migration
+npx skills add taiga-family/skills --skill tui-migration
 
 # Install all skills:
 npx skills add taiga-family/skills --all
@@ -20,5 +20,4 @@ Skills are installed into your agent's skills directory and auto-trigger based o
 
 | Skill | Description |
 |---|---|
-| [tui-write-migration](./dev/tui-write-migration/SKILL.md) | Write and review Taiga UI schematics migrations |
 | [tui-migration](./general/tui-migration/SKILL.md) | Safely resolve Taiga UI schematics migration TODOs without breaking behavior |
