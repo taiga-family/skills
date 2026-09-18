@@ -18,10 +18,12 @@ Skills are installed into your agent's skills directory and auto-trigger based o
 
 ## Available skills
 
-| Skill | Description |
-|---|---|
-| [tui-setup](tui-setup/SKILL.md) | Set up Taiga UI in an Angular project (`ng add taiga-ui`, root, styles, providers) |
-| [tui-migration](tui-migration/SKILL.md) | Safely resolve Taiga UI schematics migration TODOs without breaking behavior |
+| Skill                                       | Description                                                                        |
+| ------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [tui-setup](tui-setup/SKILL.md)             | Set up Taiga UI in an Angular project (`ng add taiga-ui`, root, styles, providers) |
+| [tui-migration](tui-migration/SKILL.md)     | Safely resolve Taiga UI schematics migration TODOs without breaking behavior       |
+| [tui-contributor](tui-contributor/SKILL.md) | Implement and verify changes inside the Taiga UI monorepo                          |
+| [tui-testing](tui-testing/SKILL.md)         | Test Angular application code that uses Taiga UI components, forms, and portals    |
 
 ## Evals
 
