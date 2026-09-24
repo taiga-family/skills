@@ -1,3 +1,10 @@
+# Δ 0.00 here is a CEILING, not a bug or a masked defect.
+# The confirm dialog (`TUI_CONFIRM`, kit) is a well-known pattern whose v5 shape matches older recall,
+# so even the bare arm creates the component, reaches for `TUI_CONFIRM`, and never invents a
+# `TUI_DIALOG_DATA` token — both arms already score 1.00 (baseline 2026-09-23: without 1 → with 1).
+# The `no-invented-data-token` negatives still GUARD the v5 data-token trap; they simply don't fire
+# because neither arm trips it. Keep the case as a floor/regression guard — do not chase a with-vs-bare
+# gap by editing the prompt (see 16-styling-danger/case.yaml for why sharpening backfires).
 schema_version: "1.0"
 name: 13-confirm
 context:
