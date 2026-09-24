@@ -1,0 +1,4 @@
+schema_version: "1.0"
+name: 20-mini-crm
+context:
+  scaffold_script: scaffold.sh
