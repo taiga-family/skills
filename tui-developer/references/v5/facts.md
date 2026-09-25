@@ -1,4 +1,4 @@
-<!-- VERSION-SCOPED: Taiga UI v5 (Angular 19+). Regenerate this folder per major version — treat it like a migration. -->
+<!-- Taiga UI v5 (Angular 19+) — version-scoped facts. -->
 <!-- The live MCP / llms-full.txt is authoritative. If anything here disagrees with the live source, trust the live source. -->
 
 # Taiga UI v5 — concrete facts (offline safety net)

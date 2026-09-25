@@ -12,9 +12,9 @@ description: >
 
 # Building with Taiga UI
 
-The **version-independent method** for building with Taiga UI: the library's shape, how to pick
-components, and the mistakes to avoid. It holds **no** exhaustive API — that lives in the live source you
-consult per task. The depth lives in [`references/`](references); this file just routes you there.
+The method for building with Taiga UI: the library's shape, how to pick components, and the mistakes to
+avoid. It holds **no** exhaustive API — that lives in the live source you consult per task; the depth
+lives in [`references/`](references).
 
 > The #1 failure is writing Taiga code from memory that reflects an older major or an invented API.
 > Everything here exists to prevent that. **If the live source and this skill disagree, the live source wins.**
@@ -60,10 +60,3 @@ forms, signals for local state and `computed` for derived, logic in `.ts` / temp
 in the stylesheet, and `[class.x]` / `[style.p]` over `ngClass` / `ngStyle`. This skill does **not**
 re-teach these — pair it with a general Angular skill, and detect the Angular major the same way you
 detect the Taiga major (Step 0).
-
-## Maintenance contract
-
-Keep SKILL.md and the method references free of volatile facts — component lists, import tables,
-token / service names, version numbers. Those belong to the live source and, as an offline fallback only,
-to `references/v5/`. When a new major ships, regenerate `references/v5/` (treat it like a migration) and
-leave the backbone untouched unless the *method* itself changed.
