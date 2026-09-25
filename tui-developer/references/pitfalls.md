@@ -10,7 +10,7 @@ v5 instances live in [v5/facts.md](v5/facts.md), but always prefer the live sour
 3. **A barrel array imported as if it were a single class** — the label / clear button / dropdown then
    silently don't work.
 4. **Native attribute instead of a form binding on a control.** `[checked]` / `[value]` on a Taiga
-   control leaves it inert / disabled — bind `[formControl]` / `[(ngModel)]` (see [forms.md](forms.md)).
+   control leaves it display-only — the value never binds to the form; bind `[formControl]` / `[(ngModel)]` (see [forms.md](forms.md)).
 5. **Inventing a token, pipe, or service** by analogy to another library or an older major (e.g. a
    `*_DATA` dialog token, a field-error pipe). Confirm it exists before using it.
 6. **Copying demo-only imports** (internal `@demo/*` helpers) from documentation examples into a real app.
@@ -30,7 +30,7 @@ Durable red flags — any hit is a smell to re-check against the live source (co
 [v5/facts.md](v5/facts.md)):
 
 - `<tui-` on something that should be a directive-on-native control (e.g. an input) → wrong shape.
-- `[checked]=` / `[value]=` on a `tui*` control → inert control; bind a form control.
+- `[checked]=` / `[value]=` on a `tui*` control → display-only, value never binds; bind a form control.
 - `ngClass` / `ngStyle` → use `[class.x]` / `[style.p]`.
 - `provideAnimations` / manually registered event plugins → the root provider does this.
 - an `*_DATA` / `*_DIALOG_DATA` token, or a `*FieldError` pipe → confirm it exists; usually it doesn't.
@@ -58,7 +58,7 @@ version-independent shapes.
 ```
 
 ```html
-<!-- Incorrect: a native attribute leaves a Taiga CVA control inert / disabled — and it compiles cleanly -->
+<!-- Incorrect: a native attribute leaves a Taiga CVA control display-only (value never binds to the form) — and it compiles cleanly -->
 <input tuiCheckbox type="checkbox" [checked]="urgent" />
 <!-- Correct: drive it through a form control -->
 <input tuiCheckbox type="checkbox" [formControl]="urgentControl" />

@@ -83,6 +83,10 @@ function buildOne(input) {
       output = `${e.stdout || ''}${e.stderr || ''}`;
       return {label, ok: false, output};
     }
+  } catch (e) {
+    // Setup (rsync/symlink) failed before the build could run — fail this one
+    // input, don't let the exception abort the whole batch.
+    return {label, ok: false, reason: `setup failed: ${e.message}`};
   } finally {
     fs.rmSync(buildDir, {recursive: true, force: true});
   }

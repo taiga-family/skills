@@ -20,7 +20,7 @@
 # fallbacks (and `| red`, unbounded, also hit prose like "red flags"). The pattern now negative-lookbehinds
 # `var\(…` and word-bounds the names, so it fires ONLY on a bare literal that bypasses the token system
 # (`color: #dc3545`, `border: 1px solid #f5511f`, `background: red`) — verified to still catch all of those.
-# The committed report.html predates this fix; its single 0.875 with-run on this case was that false-positive.
+# report.html was regenerated after this fix and no longer shows that false-positive with-run.
 schema_version: "1.0"
 name: 16-styling-danger
 context:

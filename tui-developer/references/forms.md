@@ -15,15 +15,15 @@ v5 they are `<tui-textfield>` + `<input tuiInput>`, both from `@taiga-ui/core`.
 
 Taiga form controls are **ControlValueAccessor directives**. Drive them through Angular forms —
 `[formControl]` / `formControlName` / `[(ngModel)]`. **Do not** use the native `[checked]` / `[value]` to
-reflect state: without a bound `NgControl` the control has no value accessor wired and renders
-**disabled / inert**. This is the single most common "the control shows but I can't interact with it"
+reflect state: without a bound `NgControl` the value never flows through the form — the control renders
+**display-only (decorative), not interactive**. This is the single most common "the control shows but I can't interact with it"
 bug, and it *compiles cleanly* — only the running app reveals it.
 
 ```html
 <!-- right: bound through a form control -->
 <input tuiCheckbox type="checkbox" [(ngModel)]="task.done" />
 
-<!-- wrong: native attribute -> the control renders disabled -->
+<!-- wrong: native attribute -> value never binds to the form; the control is display-only, not interactive -->
 <input tuiCheckbox type="checkbox" [checked]="task.done" />
 ```
 

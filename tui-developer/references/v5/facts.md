@@ -19,7 +19,7 @@ against the MCP / `llms-full.txt`.
 - `TuiAlertService` for notifications — it *compiles*, then throws `NullInjectorError` (blank page). Use `TuiNotificationService`.
 - `<input tuiTextfield>` as the text control, a `tuiFieldError` pipe, or a `*_DATA` dialog token — removed / never existed in v5.
 - `TuiSlider` from `@taiga-ui/kit` — it lives in **core** (kit only has the composite `TuiInputSlider`); wrong-package build error.
-- Native `[checked]` / `[value]` on a CVA control — renders it disabled.
+- Native `[checked]` / `[value]` on a CVA control — value never binds to the form; renders display-only, not interactive.
 - `appearance="destructive"` (or `danger` / `error`) — no such value; `appearance` accepts any `string`, so it *compiles* and renders **unstyled** (silent, no build error). Use a compound `*-destructive` or status `negative`.
 - v4 setup (`NG_EVENT_PLUGINS` / `provideAnimations()`) instead of `provideTaiga()`.
 
@@ -61,7 +61,7 @@ If any of these is missing and portalled UI won't render, run the `tui-setup` sk
   were removed in v5.
 - Button `[loading]` needs `TuiButtonLoading` (**kit**) in addition to `TuiButton`.
 - `tuiCheckbox` / `tuiSwitch` / `tuiSelect` etc. are CVA directives — bind `[(ngModel)]` / `formControl`, never
-  `[checked]` / `[value]` (native attribute → renders disabled).
+  `[checked]` / `[value]` (native attribute → value never binds; display-only, not interactive).
 - **Select** is `<input tuiSelect>` inside `<tui-textfield tuiChevron>`, with options projected by
   **`*tuiDropdown` (`TuiDropdown`, core)** onto `<tui-data-list-wrapper [items]="…">`:
   `<tui-textfield tuiChevron><input tuiSelect [formControl]="ctrl" /><tui-data-list-wrapper *tuiDropdown [items]="items" /></tui-textfield>`.
