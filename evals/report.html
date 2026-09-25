@@ -144,14 +144,14 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <header>
 <div class="eyebrow">Plugin eval report</div>
 <h1>tui-setup, tui-developer</h1>
-<p class="verdict">Plugin effect: <span class="delta delta-pos">↑ +21.7 pts</span> vs baseline — improved 7 · flat 3 · regressed 0 of 10 cases.</p>
+<p class="verdict">Plugin effect: <span class="delta delta-pos">↑ +22.8 pts</span> vs baseline — improved 7 · flat 3 · regressed 0 of 10 cases.</p>
 <div class="meta">
 <span class="mono">tui-setup</span>
 <span class="mono">tui-developer</span>
 <span>Claude Code v2.1.278</span>
-<span class="num">2026-09-25 10:39 UTC</span>
-<span class="num">19m 44s</span>
-<span class="num">$18.85</span>
+<span class="num">2026-09-25 13:52 UTC</span>
+<span class="num">18m 54s</span>
+<span class="num">$18.82</span>
 <span class="num">52 runs</span>
 <span class="num">4 in flight</span>
 
@@ -161,13 +161,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 
 </div>
 </header>
-<div class="banner"><span class="chip-warn">⚠ Averages include non-judgments</span><span>5 runs errored — their scores count toward the averages shown without a complete judgment.</span></div>
+<div class="banner"><span class="chip-warn">⚠ Averages include non-judgments</span><span>3 runs errored — their scores count toward the averages shown without a complete judgment.</span></div>
 <section class="tiles">
-<div class="tile hero"><span class="label">Suite score · with plugin</span><span class="value">96.1%<span class="star" title="Includes runs that errored or hit the cost ceiling — see “How to read this report”">*</span></span><span class="sub">mean of per-case scores · * includes 2 runs without a complete judgment</span></div>
-<div class="tile"><span class="label">Ablation Δ</span><span class="value num delta-pos">↑ +21.7</span><span class="sub">score points vs baseline, 10 of 10 cases</span></div>
-<div class="tile"><span class="label">Baseline score</span><span class="value num">74.4%</span><span class="sub">without the plugin</span></div>
-<div class="tile"><span class="label">Cases</span><span class="value num">10</span><span class="sub">8 of 10 ≥ 100% threshold</span></div>
-<div class="tile"><span class="label">Perfect runs</span><span class="value num">93.3%</span><span class="sub">runs where every grader passed</span></div>
+<div class="tile hero"><span class="label">Suite score · with plugin</span><span class="value">96.7%</span><span class="sub">mean of per-case scores</span></div>
+<div class="tile"><span class="label">Ablation Δ</span><span class="value num delta-pos">↑ +22.8</span><span class="sub">score points vs baseline, 10 of 10 cases</span></div>
+<div class="tile"><span class="label">Baseline score</span><span class="value num">73.8%</span><span class="sub">without the plugin</span></div>
+<div class="tile"><span class="label">Cases</span><span class="value num">10</span><span class="sub">9 of 10 ≥ 100% threshold</span></div>
+<div class="tile"><span class="label">Perfect runs</span><span class="value num">96.7%</span><span class="sub">runs where every grader passed</span></div>
 </section>
 <details class="section legend">
 <summary>How to read this report</summary>
@@ -177,7 +177,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <li>The suite score is the mean of the per-case scores.</li>
 <li>Judge votes are independent samples of the LLM judge; the majority decides pass or fail.</li>
 <li>"With plugin" and "Baseline" runs are identical except for the plugin being loaded; Δ is the with-plugin score minus the baseline score.</li>
-<li>Scores marked with * include runs that errored or hit the cost ceiling (LLM graders force-failed); those runs count toward the means without a complete judgment.</li>
+
 </ul>
 </details>
 <div class="toolbar"><button type="button" data-act="expand">Expand all</button><button type="button" data-act="collapse">Collapse all</button></div>
@@ -205,15 +205,15 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 1</span>
-<span class="meter m-accent" aria-hidden="true"><span style="width:0.0%"></span></span>
-<span class="num">0%</span>
-<span class="muted num">11 turns · $0.21 · 10:39:48 UTC</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">14 turns · $0.37 · 13:52:28 UTC</span>
 </div>
 
-<div class="graders"><details class="grader" open>
-<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">runs-ng-add</span>  </summary>
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Bash called 0x (expected 1..∞)</p>
+<p class="explanation">Bash called 2x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -230,13 +230,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">11 turns · $0.28 · 10:39:48 UTC</span>
+<span class="muted num">9 turns · $0.32 · 13:52:28 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Bash called 2x (expected 1..∞)</p>
+<p class="explanation">Bash called 1x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -251,15 +251,15 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 3</span>
-<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
-<span class="num">100%</span>
-<span class="muted num">12 turns · $0.35 · 10:39:48 UTC</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:0.0%"></span></span>
+<span class="num">0%</span>
+<span class="muted num">12 turns · $0.30 · 13:52:28 UTC</span>
 </div>
 
-<div class="graders"><details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">runs-ng-add</span>  </summary>
+<div class="graders"><details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Bash called 2x (expected 1..∞)</p>
+<p class="explanation">Bash called 0x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -283,7 +283,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">13 turns · $0.66 · 10:39:48 UTC</span>
+<span class="muted num">13 turns · $0.71 · 13:52:28 UTC</span>
 </div>
 <div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
 <div class="graders"><details class="grader" open>
@@ -299,9 +299,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">17 turns · $0.54 · 10:40:17 UTC</span>
+<span class="muted num">13 turns · $0.71 · 13:53:03 UTC</span>
 </div>
-
+<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
 <div class="graders"><details class="grader" open>
 <summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
@@ -315,9 +315,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">13 turns · $0.57 · 10:40:35 UTC</span>
+<span class="muted num">17 turns · $0.46 · 13:53:13 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader" open>
 <summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
@@ -350,11 +350,11 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <h2>05-neg-material</h2>
 <span class="muted mono">evals/05-neg-material</span>
 <span class="spacer"></span>
-<span class="flag">⚠ 3 runs errored</span>
+<span class="flag">⚠ 1 run errored</span>
 <span class="delta delta-zero">· 0.0 pts</span>
 <span class="muted">with plugin</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
-<span class="num case-score">100%<span class="star" title="Includes runs that errored or hit the cost ceiling — see “How to read this report”">*</span></span>
+<span class="num case-score">100%</span>
 </div>
 
 <details class="section" open>
@@ -371,7 +371,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.44 · 10:40:35 UTC</span>
+<span class="muted num">15 turns · $0.34 · 13:53:19 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -394,9 +394,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.39 · 10:41:54 UTC</span>
+<span class="muted num">23 turns · $0.53 · 13:54:41 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -417,9 +417,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.56 · 10:41:56 UTC</span>
+<span class="muted num">18 turns · $0.45 · 13:54:51 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -447,9 +447,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.51 · 10:42:17 UTC</span>
+<span class="muted num">9 turns · $0.25 · 13:54:54 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -470,7 +470,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.35 · 10:42:24 UTC</span>
+<span class="muted num">19 turns · $0.37 · 13:55:44 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -493,9 +493,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">16 turns · $0.32 · 10:43:15 UTC</span>
+<span class="muted num">13 turns · $0.36 · 13:55:52 UTC</span>
 </div>
-
+<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -556,7 +556,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">18 turns · $0.34 · 10:43:35 UTC</span>
+<span class="muted num">12 turns · $0.27 · 13:56:16 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -600,7 +600,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">15 turns · $0.34 · 10:43:48 UTC</span>
+<span class="muted num">18 turns · $0.36 · 13:56:20 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -644,7 +644,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">15 turns · $0.36 · 10:43:51 UTC</span>
+<span class="muted num">17 turns · $0.32 · 13:57:10 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -695,7 +695,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
 <span class="num">50%</span>
-<span class="muted num">13 turns · $0.23 · 10:44:28 UTC</span>
+<span class="muted num">12 turns · $0.20 · 13:57:10 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -732,7 +732,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
 <span class="num">50%</span>
-<span class="muted num">12 turns · $0.21 · 10:44:30 UTC</span>
+<span class="muted num">8 turns · $0.18 · 13:57:11 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -769,7 +769,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
 <span class="num">50%</span>
-<span class="muted num">13 turns · $0.21 · 10:44:44 UTC</span>
+<span class="muted num">7 turns · $0.20 · 13:57:22 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -858,7 +858,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">17 turns · $0.39 · 10:44:53 UTC</span>
+<span class="muted num">14 turns · $0.34 · 13:57:41 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -916,7 +916,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">16 turns · $0.36 · 10:45:09 UTC</span>
+<span class="muted num">19 turns · $0.42 · 13:57:46 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -974,7 +974,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">16 turns · $0.31 · 10:45:13 UTC</span>
+<span class="muted num">16 turns · $0.35 · 13:58:06 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1039,7 +1039,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
 <span class="num">66.7%</span>
-<span class="muted num">15 turns · $0.30 · 10:45:25 UTC</span>
+<span class="muted num">19 turns · $0.35 · 13:58:06 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1090,58 +1090,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
 <span class="num">66.7%</span>
-<span class="muted num">18 turns · $0.39 · 10:46:02 UTC</span>
-</div>
-
-<div class="graders"><details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
-<div class="grader-body">
-<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
-
-</div>
-</details>
-<details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
-<div class="grader-body">
-<p class="explanation">Edit called 0x (expected 0..0)</p>
-
-</div>
-</details>
-<details class="grader" open>
-<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
-<div class="grader-body">
-<p class="explanation">Write called 1x (expected 0..0)</p>
-
-</div>
-</details>
-<details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
-<div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
-
-</div>
-</details>
-<details class="grader" open>
-<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-tui-input</span>  </summary>
-<div class="grader-body">
-<p class="explanation">Write called 0x (expected 1..∞)</p>
-
-</div>
-</details>
-<details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
-<div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
-
-</div>
-</details></div>
-</div>
-<div class="run">
-<div class="run-head">
-<span class="run-title">Run 3</span>
-<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
-<span class="num">66.7%</span>
-<span class="muted num">16 turns · $0.34 · 10:46:11 UTC</span>
+<span class="muted num">21 turns · $0.48 · 13:58:40 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1183,6 +1132,57 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">14 turns · $0.32 · 13:59:07 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
 
 </div>
 </details></div>
@@ -1252,7 +1252,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">15 turns · $0.32 · 10:46:18 UTC</span>
+<span class="muted num">18 turns · $0.39 · 13:59:12 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1296,7 +1296,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">20 turns · $0.42 · 10:46:29 UTC</span>
+<span class="muted num">14 turns · $0.33 · 13:59:25 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1340,7 +1340,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">15 turns · $0.34 · 10:47:16 UTC</span>
+<span class="muted num">17 turns · $0.43 · 14:00:17 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1391,7 +1391,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
 <span class="num">75%</span>
-<span class="muted num">12 turns · $0.23 · 10:47:29 UTC</span>
+<span class="muted num">14 turns · $0.25 · 14:00:24 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1428,7 +1428,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
 <span class="num">75%</span>
-<span class="muted num">6 turns · $0.18 · 10:47:31 UTC</span>
+<span class="muted num">9 turns · $0.19 · 14:00:28 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1465,7 +1465,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
 <span class="num">75%</span>
-<span class="muted num">11 turns · $0.24 · 10:47:52 UTC</span>
+<span class="muted num">9 turns · $0.25 · 14:00:32 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1492,7 +1492,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 1x (expected 1..∞)</p>
+<p class="explanation">Write called 2x (expected 1..∞)</p>
 
 </div>
 </details></div>
@@ -1524,7 +1524,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 </div>
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">uses-slider</span><span class="badge">tool_used</span></div>
-<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiSlider&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tui(?:Input)?Slider&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
 </div>
 </details>
 </article>
@@ -1554,7 +1554,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">19 turns · $0.47 · 10:48:08 UTC</span>
+<span class="muted num">21 turns · $0.54 · 14:01:06 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1619,7 +1619,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">11 turns · $0.28 · 10:48:13 UTC</span>
+<span class="muted num">13 turns · $0.39 · 14:01:20 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1730,7 +1730,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">12 turns · $0.32 · 10:48:21 UTC</span>
+<span class="muted num">15 turns · $0.35 · 14:01:35 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1795,7 +1795,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">16 turns · $0.40 · 10:48:43 UTC</span>
+<span class="muted num">19 turns · $0.40 · 14:02:00 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1860,7 +1860,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">17 turns · $0.42 · 10:49:16 UTC</span>
+<span class="muted num">14 turns · $0.31 · 14:02:40 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1932,7 +1932,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
 <span class="num">85.7%</span>
-<span class="muted num">9 turns · $0.22 · 10:49:16 UTC</span>
+<span class="muted num">9 turns · $0.23 · 14:02:45 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -1990,7 +1990,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
 <span class="num">85.7%</span>
-<span class="muted num">7 turns · $0.22 · 10:49:44 UTC</span>
+<span class="muted num">10 turns · $0.22 · 14:02:52 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2048,7 +2048,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
 <span class="num">85.7%</span>
-<span class="muted num">9 turns · $0.25 · 10:49:47 UTC</span>
+<span class="muted num">7 turns · $0.23 · 14:03:16 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2170,7 +2170,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.08 · 10:50:01 UTC</span>
+<span class="muted num">4 turns · $0.11 · 14:03:31 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2193,7 +2193,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.09 · 10:50:09 UTC</span>
+<span class="muted num">4 turns · $0.11 · 14:03:38 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2216,7 +2216,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.08 · 10:50:21 UTC</span>
+<span class="muted num">2 turns · $0.08 · 14:03:39 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2246,7 +2246,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.08 · 10:50:29 UTC</span>
+<span class="muted num">2 turns · $0.08 · 14:03:43 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2269,7 +2269,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.08 · 10:50:37 UTC</span>
+<span class="muted num">4 turns · $0.11 · 14:03:47 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2292,7 +2292,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">2 turns · $0.09 · 10:50:38 UTC</span>
+<span class="muted num">2 turns · $0.08 · 14:03:51 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2335,10 +2335,10 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="muted mono">evals/16-styling-danger</span>
 <span class="spacer"></span>
 
-<span class="delta delta-pos">↑ +5.6 pts</span>
+<span class="delta delta-pos">↑ +16.7 pts</span>
 <span class="muted">with plugin</span>
-<span class="meter m-accent" aria-hidden="true"><span style="width:94.4%"></span><i class="tick" style="left:100.0%"></i></span>
-<span class="num case-score">94.4%</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
 </div>
 
 <details class="section" open>
@@ -2346,16 +2346,16 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <section class="arm">
 <div class="arm-head">
 <span class="arm-label">With plugin</span>
-<span class="meter m-accent" aria-hidden="true"><span style="width:94.4%"></span></span>
-<span class="num">94.4%</span>
-<span class="muted num">66.7% of runs perfect</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
 </div>
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">19 turns · $0.40 · 10:50:38 UTC</span>
+<span class="muted num">14 turns · $0.41 · 14:03:51 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2413,7 +2413,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">17 turns · $0.43 · 10:50:41 UTC</span>
+<span class="muted num">20 turns · $0.47 · 14:03:58 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2469,9 +2469,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 3</span>
-<span class="meter m-accent" aria-hidden="true"><span style="width:83.3%"></span></span>
-<span class="num">83.3%</span>
-<span class="muted num">19 turns · $0.45 · 10:50:46 UTC</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">16 turns · $0.43 · 14:04:05 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2516,10 +2516,10 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 
 </div>
 </details>
-<details class="grader" open>
-<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 0x (expected 1..∞)</p>
+<p class="explanation">Write called 1x (expected 1..∞)</p>
 
 </div>
 </details></div>
@@ -2527,16 +2527,16 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 </section><section class="arm">
 <div class="arm-head">
 <span class="arm-label">Baseline (no plugin)</span>
-<span class="meter m-base" aria-hidden="true"><span style="width:88.9%"></span></span>
-<span class="num">88.9%</span>
-<span class="muted num">33.3% of runs perfect</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:83.3%"></span></span>
+<span class="num">83.3%</span>
+<span class="muted num">0% of runs perfect</span>
 </div>
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:83.3%"></span></span>
 <span class="num">83.3%</span>
-<span class="muted num">15 turns · $0.43 · 10:50:47 UTC</span>
+<span class="muted num">16 turns · $0.41 · 14:04:06 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2585,9 +2585,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="run">
 <div class="run-head">
 <span class="run-title">Run 2</span>
-<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
-<span class="num">100%</span>
-<span class="muted num">16 turns · $0.42 · 10:52:02 UTC</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:83.3%"></span></span>
+<span class="num">83.3%</span>
+<span class="muted num">16 turns · $0.36 · 14:05:19 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2625,10 +2625,10 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 
 </div>
 </details>
-<details class="grader">
-<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 1x (expected 1..∞)</p>
+<p class="explanation">Write called 0x (expected 1..∞)</p>
 
 </div>
 </details></div>
@@ -2638,7 +2638,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:83.3%"></span></span>
 <span class="num">83.3%</span>
-<span class="muted num">18 turns · $0.50 · 10:52:21 UTC</span>
+<span class="muted num">16 turns · $0.37 · 14:05:37 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2707,11 +2707,11 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 </div>
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">no-hardcoded-color-edit</span><span class="badge">tool_used</span></div>
-<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?&lt;!var\\([^)]*)(#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|\\bcrimson\\b|\\bred\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?&lt;!var\\([^)]*)(#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|:\\s*(?:crimson|red)\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
 </div>
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">no-hardcoded-color</span><span class="badge">tool_used</span></div>
-<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?&lt;!var\\([^)]*)(#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|\\bcrimson\\b|\\bred\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?&lt;!var\\([^)]*)(#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|:\\s*(?:crimson|red)\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
 </div>
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
@@ -2749,7 +2749,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">36 turns · $1.01 · 10:52:42 UTC</span>
+<span class="muted num">28 turns · $1.03 · 14:05:46 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2898,7 +2898,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:77.8%"></span></span>
 <span class="num">77.8%</span>
-<span class="muted num">34 turns · $1.42 · 10:53:06 UTC</span>
+<span class="muted num">31 turns · $1.28 · 14:05:47 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -2988,7 +2988,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-loading-button</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 1x (expected 1..∞)</p>
+<p class="explanation">Write called 2x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -3002,28 +3002,28 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-select</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
+<p class="explanation">Write called 3x (expected 1..∞)</p>
 
 </div>
 </details>
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
+<p class="explanation">Write called 3x (expected 1..∞)</p>
 
 </div>
 </details>
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-error</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
+<p class="explanation">Write called 3x (expected 1..∞)</p>
 
 </div>
 </details>
 <details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">writes-component</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Write called 2x (expected 1..∞)</p>
+<p class="explanation">Write called 3x (expected 1..∞)</p>
 
 </div>
 </details></div>

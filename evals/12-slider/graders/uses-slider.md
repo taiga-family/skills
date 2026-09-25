@@ -1,6 +1,6 @@
 ---
 type: tool_used
 tool: Write
-input_match: "tuiSlider"
+input_match: "tui(?:Input)?Slider"
 min: 1
 ---
