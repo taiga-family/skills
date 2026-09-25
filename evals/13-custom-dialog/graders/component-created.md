@@ -1,5 +1,5 @@
 ---
 type: file_exists
-path: "**/delete-item/**/*.ts"
+path: "**/edit-name/**/*.ts"
 exists: true
 ---

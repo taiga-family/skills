@@ -1,0 +1,24 @@
+# Live TRAP guard for the v5 custom-dialog wiring. Repurposed 2026-09-25 from the old 13-confirm
+# (built-in `TUI_CONFIRM`), which sat at Δ0.00 because the confirm path never touches the dialog
+# context — so its `no-invented-data-token` guard could never actually fire (dead guard).
+#
+# This task forces a SEPARATE custom dialog component that reads input data AND returns a value,
+# which is exactly where the v5 trap lives: there is NO `TUI_DIALOG_DATA` token. Data is read via
+# `injectContext<TuiDialogContext<Result, Data>>()` and the result returned with
+# `context.completeWith(value)` (@taiga-ui/polymorpheus). A model recalling v4 / Angular Material
+# reaches for an injected data token (`TUI_DIALOG_DATA`, `MAT_DIALOG_DATA`) → silent NullInjectorError.
+#
+# The positives assert the correct SHAPE (TuiDialogService + injectContext/POLYMORPHEUS_CONTEXT +
+# completeWith) — which 20-mini-crm does NOT check (it only guards the negative token + the service).
+# The fact lives in tui-developer/references/v5/facts.md. Δ may be noisy: this is a shape/regression
+# guard, not a with-vs-bare meter (see 16-styling-danger/case.yaml for why chasing Δ backfires).
+#
+# Confirm run (2026-09-25, sonnet, with-without, runs 1): with 1.00 / without 1.00 (Δ0). All positives
+# pass (component + injectContext + completeWith + TuiDialogService), no invented token — the correct v5
+# shape scores cleanly, no false-negative on the positives. As with the old confirm case the bare arm did
+# not trip the token trap at n=1; the win vs the old case is that the SHAPE is now positively asserted
+# (20-mini-crm only guards the negative + service) and the negative sits on a LIVE data-reading path.
+schema_version: "1.0"
+name: 13-custom-dialog
+context:
+  scaffold_script: scaffold.sh
