@@ -12,6 +12,15 @@
 # 1.00 (Δ 0.00) — naming the appearance system makes even the bare model pick a valid compound. The trap is
 # an UNDER-SPECIFICATION artifact (casual pattern-matching), not a pressure one; the terse phrasing is what
 # reproduces the natural trigger, so keep it terse.
+#
+# Grader note — `no-hardcoded-color` excludes `var()` fallbacks. A `--keep-temp` re-run (2026-09-24)
+# traced the one sub-1.0 with-arm run: it wrote CORRECT v5 (`color: var(--tui-status-negative, #f5511f)`,
+# `background: var(--tui-status-negative-pale, rgb(...))`) — Taiga status tokens with hex/rgb only as the
+# `var()` FALLBACK arg, not a hand-rolled color. The old regex `#hex|rgb|crimson| red` false-fired on those
+# fallbacks (and `| red`, unbounded, also hit prose like "red flags"). The pattern now negative-lookbehinds
+# `var\(…` and word-bounds the names, so it fires ONLY on a bare literal that bypasses the token system
+# (`color: #dc3545`, `border: 1px solid #f5511f`, `background: red`) — verified to still catch all of those.
+# The committed report.html predates this fix; its single 0.875 with-run on this case was that false-positive.
 schema_version: "1.0"
 name: 16-styling-danger
 context:
