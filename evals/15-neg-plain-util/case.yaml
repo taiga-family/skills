@@ -1,0 +1,4 @@
+schema_version: "1.0"
+name: 15-neg-plain-util
+context:
+  scaffold_script: scaffold.sh

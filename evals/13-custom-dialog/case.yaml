@@ -1,0 +1,23 @@
+# STATIC SHAPE-TRIPWIRE — pins the correct v5 custom-dialog shape; NOT a lift meter.
+# Repurposed 2026-09-25 from the old 13-confirm (built-in TUI_CONFIRM, a dead ceiling that never
+# discriminated over 6 runs — the confirm path never reads dialog context, so its token trap could
+# not fire). This task forces a SEPARATE custom dialog component that reads input data AND returns a
+# value — the live path where the v5 trap actually lives.
+#
+# The v5 fact (tui-developer/references/v5/facts.md): there is NO `TUI_DIALOG_DATA` token. Read the
+# passed data via `injectContext<TuiDialogContext<Result, Data>>()` and return it with
+# `context.completeWith(value)` (@taiga-ui/polymorpheus). A model recalling v4 / Angular Material
+# would inject a data token (`TUI_DIALOG_DATA`, `MAT_DIALOG_DATA`) -> silent NullInjectorError.
+#
+# WHY runs=1, and why this is a tripwire not a meter: measured 2026-09-25 (sonnet, with-without,
+# runs 3 -> n=5 total incl. the earlier confirm run) — with 1.00 / without 1.00 every time (Δ0).
+# The bare sonnet model reliably knows the v5 polymorpheus dialog pattern, so this case does NOT
+# demonstrate skill lift and will not (do NOT "sharpen" the prompt to manufacture a Δ — see
+# 16-styling-danger/case.yaml for why that backfires). It is kept only for its UNIQUE positive
+# shape-assert (injectContext + completeWith), which 20-mini-crm does not check (20 guards only the
+# negative token + TuiDialogService). Demoted to runs=1: it pins ground truth cheaply and fails
+# loudly if a skill edit or a Taiga bump breaks the taught dialog shape.
+schema_version: "1.0"
+name: 13-custom-dialog
+context:
+  scaffold_script: scaffold.sh

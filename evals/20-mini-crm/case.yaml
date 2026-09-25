@@ -1,0 +1,13 @@
+# Flagship multi-capability case: one screen exercising dialog+form+select+validation+loading+notify+confirm.
+# Grader note — `uses-textfield` matches the wrapper by ANY real v5 signature: `[Tt]ui-?[Tt]extfield`
+# (import `TuiTextfield`, tag `<tui-textfield>`, or options directive `tuiTextfield*`). The old narrow
+# regex `"tuiTextfield"` false-failed the canonical form `<tui-textfield><input tuiInput>` — which need
+# not contain the camelCase string (pre-flight 2026-09-24: with-arm 0.944, failing solely on this).
+# Since `tuiInput` throws NullInjectorError without the `<tui-textfield>` wrapper, wrapper-presence IS
+# the correctness condition, so the regex passes iff the wrapper was written and cannot false-pass a
+# form that omits it. The `no-*` negatives target the v5 traps a bare (v4-recall) model hits:
+# TuiAlertService, tuiFieldError, TUI_DIALOG_DATA, tuiTextfieldDropdown, showLoader.
+schema_version: "1.0"
+name: 20-mini-crm
+context:
+  scaffold_script: scaffold.sh

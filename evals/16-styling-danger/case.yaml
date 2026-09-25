@@ -1,0 +1,27 @@
+# Regression guard, NOT an enrichment meter.
+# Targets the v5 trap `appearance="destructive"` — a hallucinated value that COMPILES
+# (the Appearance type union includes bare `string`) but renders unstyled (silent Class-A).
+# Valid destructive styling = a compound `*-destructive` (primary-/secondary-/flat-/outline-/action-)
+# or status `negative`. The `-destructive|negative` positive grader + `no-bare-destructive` negative
+# grader catch the bare value WHEN it appears; the fact lives in tui-developer/references/v5/facts.md.
+# The bare-model hallucination is INTERMITTENT (seen 3/3 in one run, 0/3 in another), so per-run Δ is
+# noisy and small — this case exists to FAIL LOUDLY on the trap, not to measure a stable with-vs-bare gap.
+#
+# The prompt is deliberately TERSE ("a button that reads as a destructive action"). Do not "sharpen" it:
+# an experiment adding "use Taiga's appearance system, don't hand-write colors" drove BOTH arms to a clean
+# 1.00 (Δ 0.00) — naming the appearance system makes even the bare model pick a valid compound. The trap is
+# an UNDER-SPECIFICATION artifact (casual pattern-matching), not a pressure one; the terse phrasing is what
+# reproduces the natural trigger, so keep it terse.
+#
+# Grader note — `no-hardcoded-color` excludes `var()` fallbacks. A `--keep-temp` re-run (2026-09-24)
+# traced the one sub-1.0 with-arm run: it wrote CORRECT v5 (`color: var(--tui-status-negative, #f5511f)`,
+# `background: var(--tui-status-negative-pale, rgb(...))`) — Taiga status tokens with hex/rgb only as the
+# `var()` FALLBACK arg, not a hand-rolled color. The old regex `#hex|rgb|crimson| red` false-fired on those
+# fallbacks (and `| red`, unbounded, also hit prose like "red flags"). The pattern now negative-lookbehinds
+# `var\(…` and word-bounds the names, so it fires ONLY on a bare literal that bypasses the token system
+# (`color: #dc3545`, `border: 1px solid #f5511f`, `background: red`) — verified to still catch all of those.
+# report.html was regenerated after this fix and no longer shows that false-positive with-run.
+schema_version: "1.0"
+name: 16-styling-danger
+context:
+  scaffold_script: scaffold.sh

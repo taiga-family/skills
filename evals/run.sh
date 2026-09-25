@@ -14,6 +14,12 @@ if [ $# -eq 0 ]; then
   REPORT=(--report evals/report.html)
 fi
 
-exec claude plugin eval . --ablation with-without --scaffold -j 4 --no-publish \
-  --allow-tools "Bash(npx ng add:*),Bash(ng add:*),Bash(node_modules/.bin/ng add:*)" \
+# Binary is overridable: e.g. CLAUDE_BIN=~/.local/bin/cbox ./evals/run.sh
+CLAUDE_BIN="${CLAUDE_BIN:-claude}"
+
+# allow-tools grants: ng-add for the setup cases (01/05), Write+Edit for the
+# component-generation cases (10-20). --trust-plugin skips the first-run trust
+# prompt so the suite runs non-interactively (CI).
+exec "$CLAUDE_BIN" plugin eval . --ablation with-without --scaffold -j 4 --no-publish --trust-plugin \
+  --allow-tools "Bash(npx ng add:*),Bash(ng add:*),Bash(node_modules/.bin/ng add:*),Write,Edit" \
   ${REPORT[@]+"${REPORT[@]}"} "$@"
