@@ -1,2 +1,11 @@
 .idea/
+.history/
+
+# Eval run artifacts (the committed report is evals/report.html)
 evals/results/
+
+# Fixture build/install output. Anything that runs npm install in a fixture
+# (Renovate did) otherwise commits node_modules — ~20k files per PR.
+node_modules/
+dist/
+.angular/

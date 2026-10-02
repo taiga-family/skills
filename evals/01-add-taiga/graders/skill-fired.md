@@ -1,5 +1,5 @@
 ---
 type: tool_used
 tool: Skill
-input_match: "tui-setup"
+input_match: "taiga-ui-setup"
 ---

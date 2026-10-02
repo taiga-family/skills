@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eval report — tui-setup</title>
+<title>Eval report — taiga-ui-setup, taiga-ui</title>
 </head>
 <body>
 <style>
@@ -143,29 +143,30 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="wrap">
 <header>
 <div class="eyebrow">Plugin eval report</div>
-<h1>tui-setup</h1>
-<p class="verdict">Plugin effect: <span class="delta delta-pos">↑ +50.0 pts</span> vs baseline — improved 1 · flat 1 · regressed 0 of 2 cases.</p>
+<h1>taiga-ui-setup, taiga-ui</h1>
+<p class="verdict">Plugin effect: <span class="delta delta-pos">↑ +27.2 pts</span> vs baseline — improved 6 · flat 3 · regressed 0 of 9 cases.</p>
 <div class="meta">
-<span class="mono">tui-setup</span>
-<span>Claude Code v2.1.276</span>
-<span class="num">2026-09-18 08:22 UTC</span>
-<span class="num">2m 49s</span>
-<span class="num">$1.89</span>
-<span class="num">12 runs</span>
+<span class="mono">taiga-ui-setup</span>
+<span class="mono">taiga-ui</span>
+<span>Claude Code v2.1.287</span>
+<span class="num">2026-10-02 07:25 UTC</span>
+<span class="num">3m 53s</span>
+<span class="num">$4.27</span>
+<span class="num">46 runs</span>
 <span class="num">4 in flight</span>
 
-
+<span>model sonnet</span>
 <span>judge default</span>
 <span class="num">threshold 100%</span>
 
 </div>
 </header>
-<div class="banner"><span class="chip-warn">⚠ Averages include non-judgments</span><span>5 runs errored — their scores count toward the averages shown without a complete judgment.</span></div>
+
 <section class="tiles">
-<div class="tile hero"><span class="label">Suite score · with plugin</span><span class="value">100%<span class="star" title="Includes runs that errored or hit the cost ceiling — see “How to read this report”">*</span></span><span class="sub">mean of per-case scores · * includes 3 runs without a complete judgment</span></div>
-<div class="tile"><span class="label">Ablation Δ</span><span class="value num delta-pos">↑ +50.0</span><span class="sub">score points vs baseline, 2 of 2 cases</span></div>
-<div class="tile"><span class="label">Baseline score</span><span class="value num">50%</span><span class="sub">without the plugin</span></div>
-<div class="tile"><span class="label">Cases</span><span class="value num">2</span><span class="sub">2 of 2 ≥ 100% threshold</span></div>
+<div class="tile hero"><span class="label">Suite score · with plugin</span><span class="value">100%</span><span class="sub">mean of per-case scores</span></div>
+<div class="tile"><span class="label">Ablation Δ</span><span class="value num delta-pos">↑ +27.2</span><span class="sub">score points vs baseline, 9 of 9 cases</span></div>
+<div class="tile"><span class="label">Baseline score</span><span class="value num">72.8%</span><span class="sub">without the plugin</span></div>
+<div class="tile"><span class="label">Cases</span><span class="value num">9</span><span class="sub">9 of 9 ≥ 100% threshold</span></div>
 <div class="tile"><span class="label">Perfect runs</span><span class="value num">100%</span><span class="sub">runs where every grader passed</span></div>
 </section>
 <details class="section legend">
@@ -176,7 +177,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <li>The suite score is the mean of the per-case scores.</li>
 <li>Judge votes are independent samples of the LLM judge; the majority decides pass or fail.</li>
 <li>"With plugin" and "Baseline" runs are identical except for the plugin being loaded; Δ is the with-plugin score minus the baseline score.</li>
-<li>Scores marked with * include runs that errored or hit the cost ceiling (LLM graders force-failed); those runs count toward the means without a complete judgment.</li>
+
 </ul>
 </details>
 <div class="toolbar"><button type="button" data-act="expand">Expand all</button><button type="button" data-act="collapse">Collapse all</button></div>
@@ -185,11 +186,11 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <h2>01-add-taiga</h2>
 <span class="muted mono">evals/01-add-taiga</span>
 <span class="spacer"></span>
-<span class="flag">⚠ 2 runs errored</span>
+
 <span class="delta delta-pos">↑ +100.0 pts</span>
 <span class="muted">with plugin</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
-<span class="num case-score">100%<span class="star" title="Includes runs that errored or hit the cost ceiling — see “How to read this report”">*</span></span>
+<span class="num case-score">100%</span>
 </div>
 
 <details class="section" open>
@@ -206,13 +207,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">7 turns · $0.10 · 08:22:50 UTC</span>
+<span class="muted num">5 turns · $0.09 · 07:25:05 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Bash called 2x (expected 1..∞)</p>
+<p class="explanation">Bash called 1x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -229,13 +230,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.19 · 08:22:50 UTC</span>
+<span class="muted num">5 turns · $0.09 · 07:25:05 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
-<p class="explanation">Bash called 3x (expected 1..∞)</p>
+<p class="explanation">Bash called 1x (expected 1..∞)</p>
 
 </div>
 </details>
@@ -252,7 +253,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">6 turns · $0.09 · 08:22:50 UTC</span>
+<span class="muted num">5 turns · $0.09 · 07:25:05 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -282,7 +283,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">17 turns · $0.25 · 08:22:50 UTC</span>
+<span class="muted num">5 turns · $0.14 · 07:25:05 UTC</span>
 </div>
 
 <div class="graders"><details class="grader" open>
@@ -298,7 +299,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">11 turns · $0.12 · 08:23:04 UTC</span>
+<span class="muted num">4 turns · $0.06 · 07:25:16 UTC</span>
 </div>
 
 <div class="graders"><details class="grader" open>
@@ -314,9 +315,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:0.0%"></span></span>
 <span class="num">0%</span>
-<span class="muted num">13 turns · $0.18 · 08:23:06 UTC</span>
+<span class="muted num">5 turns · $0.12 · 07:25:19 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader" open>
 <summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">runs-ng-add</span>  </summary>
 <div class="grader-body">
@@ -340,20 +341,20 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 </div>
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
-<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tui-setup&quot;</code></div></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui-setup&quot;</code></div></div>
 </div>
 </details>
 </article>
 <article class="case" id="case-2">
 <div class="case-head">
-<h2>05-neg-material</h2>
-<span class="muted mono">evals/05-neg-material</span>
+<h2>02-neg-material</h2>
+<span class="muted mono">evals/02-neg-material</span>
 <span class="spacer"></span>
-<span class="flag">⚠ 3 runs errored</span>
+
 <span class="delta delta-zero">· 0.0 pts</span>
 <span class="muted">with plugin</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
-<span class="num case-score">100%<span class="star" title="Includes runs that errored or hit the cost ceiling — see “How to read this report”">*</span></span>
+<span class="num case-score">100%</span>
 </div>
 
 <details class="section" open>
@@ -370,7 +371,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">6 turns · $0.10 · 08:23:36 UTC</span>
+<span class="muted num">4 turns · $0.06 · 07:25:19 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -384,6 +385,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -393,9 +401,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.16 · 08:23:44 UTC</span>
+<span class="muted num">3 turns · $0.06 · 07:25:22 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -407,6 +415,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -416,9 +431,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.20 · 08:23:46 UTC</span>
+<span class="muted num">3 turns · $0.05 · 07:25:28 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -430,6 +445,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -446,7 +468,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 1</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">8 turns · $0.13 · 08:23:53 UTC</span>
+<span class="muted num">4 turns · $0.06 · 07:25:31 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -460,6 +482,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -469,7 +498,7 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 2</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">10 turns · $0.15 · 08:23:56 UTC</span>
+<span class="muted num">4 turns · $0.06 · 07:25:31 UTC</span>
 </div>
 
 <div class="graders"><details class="grader">
@@ -483,6 +512,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -492,9 +528,9 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <span class="run-title">Run 3</span>
 <span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
 <span class="num">100%</span>
-<span class="muted num">13 turns · $0.21 · 08:24:22 UTC</span>
+<span class="muted num">3 turns · $0.06 · 07:25:41 UTC</span>
 </div>
-<div class="run-error"><span class="chip chip-fail">✗ run error</span> <span class="explanation">exit 1: Reached maximum number of turns (12)</span></div>
+
 <div class="graders"><details class="grader">
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">answer-no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
@@ -506,6 +542,13 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-ng-add-taiga</span>  </summary>
 <div class="grader-body">
 <p class="explanation">Bash called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-skill-fired</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Skill called 0x (expected 0..0)</p>
 
 </div>
 </details></div>
@@ -526,6 +569,2426 @@ footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
 <div class="grader-def">
 <div class="grader-def-head"><span class="grader-name">no-ng-add-taiga</span><span class="badge">tool_used</span></div>
 <div class="config"><div class="kv"><span>tool</span><code>&quot;Bash&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-3">
+<div class="case-head">
+<h2>10-notification</h2>
+<span class="muted mono">evals/10-notification</span>
+<span class="spacer"></span>
+
+<span class="delta delta-pos">↑ +50.0 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">8 turns · $0.09 · 07:25:41 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">11 turns · $0.09 · 07:25:42 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">11 turns · $0.09 · 07:25:47 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
+<span class="num">50%</span>
+<span class="muted num">0% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
+<span class="num">50%</span>
+<span class="muted num">6 turns · $0.07 · 07:25:51 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
+<span class="num">50%</span>
+<span class="muted num">7 turns · $0.07 · 07:25:57 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:50.0%"></span></span>
+<span class="num">50%</span>
+<span class="muted num">6 turns · $0.08 · 07:25:58 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/save-button/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-toast-or-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>SaveButton</code> in <code>src/app/save-button/</code> with a button that, when clicked, shows the user a transient success message that says "Saved". Use Taiga UI for both the button and the message.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/save-button/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-alert-service-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiAlertService&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-alert-service</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiAlertService&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-toast-or-notification</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiNotificationService|TuiToastService|tuiToast|tuiNotification&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-4">
+<div class="case-head">
+<h2>11-form-validation</h2>
+<span class="muted mono">evals/11-form-validation</span>
+<span class="spacer"></span>
+
+<span class="delta delta-pos">↑ +33.3 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">11 turns · $0.12 · 07:26:03 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">13 turns · $0.11 · 07:26:08 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">12 turns · $0.12 · 07:26:12 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">0% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">9 turns · $0.09 · 07:26:13 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">6 turns · $0.08 · 07:26:19 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">8 turns · $0.08 · 07:26:27 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/sign-up/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield-wrapper</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-tui-input</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-errors</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>SignUp</code> in <code>src/app/sign-up/</code> with a reactive form that has a single email field. The field is required and must be a valid email address, and an inline validation message appears under it when the input is invalid. Use Taiga UI form components.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/sign-up/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-field-error-pipe-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiFieldError&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-field-error-pipe</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiFieldError&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-textfield-wrapper</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;[Tt]ui-?[Tt]extfield&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-tui-input</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiInput&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-validation-errors</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiValidationErrorsProvider|tui-error&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-5">
+<div class="case-head">
+<h2>12-slider</h2>
+<span class="muted mono">evals/12-slider</span>
+<span class="spacer"></span>
+
+<span class="delta delta-pos">↑ +25.0 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">9 turns · $0.09 · 07:26:32 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">9 turns · $0.09 · 07:26:38 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">10 turns · $0.11 · 07:26:38 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
+<span class="num">75%</span>
+<span class="muted num">0% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
+<span class="num">75%</span>
+<span class="muted num">7 turns · $0.08 · 07:26:47 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
+<span class="num">75%</span>
+<span class="muted num">7 turns · $0.08 · 07:26:49 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:75.0%"></span></span>
+<span class="num">75%</span>
+<span class="muted num">8 turns · $0.07 · 07:26:51 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/volume-control/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">slider-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">slider-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-slider</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>VolumeControl</code> in <code>src/app/volume-control/</code> with a slider the user can drag from 0 to 100, bound to a signal that holds the current value. Use the Taiga UI slider component.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/volume-control/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">slider-not-from-kit-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;import\\s*\\{[^}]*TuiSlider[^}]*\\}\\s*from\\s*[\\x27\\\&quot;]@taiga-ui/kit&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">slider-not-from-kit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;import\\s*\\{[^}]*TuiSlider[^}]*\\}\\s*from\\s*[\\x27\\\&quot;]@taiga-ui/kit&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-slider</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;[Tt]ui-?(?:[Ii]nput-?)?[Ss]lider&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-6">
+<div class="case-head">
+<h2>13-custom-dialog</h2>
+<span class="muted mono">evals/13-custom-dialog</span>
+<span class="spacer"></span>
+
+<span class="delta delta-zero">· 0.0 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">13 turns · $0.11 · 07:26:56 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/edit-name/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">reads-polymorpheus-context</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">returns-via-complete-with</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-dialog-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">6 turns · $0.10 · 07:27:04 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/edit-name/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">reads-polymorpheus-context</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">returns-via-complete-with</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-dialog-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>EditName</code> in <code>src/app/edit-name/</code> with an "Edit name" button. Clicking it opens a Taiga UI dialog that renders a separate custom dialog component; that dialog receives the current name as its input data, lets the user type a new name, and returns the new name to the caller when confirmed. Use Taiga UI's dialog service.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/edit-name/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-data-token-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TUI_DIALOG_DATA|MAT_DIALOG_DATA&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-data-token</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TUI_DIALOG_DATA|MAT_DIALOG_DATA&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">reads-polymorpheus-context</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;injectContext|POLYMORPHEUS_CONTEXT&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">returns-via-complete-with</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;completeWith&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-dialog-service</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiDialogService&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-7">
+<div class="case-head">
+<h2>14-checkbox</h2>
+<span class="muted mono">evals/14-checkbox</span>
+<span class="spacer"></span>
+
+<span class="delta delta-pos">↑ +14.3 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">9 turns · $0.09 · 07:27:05 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">8 turns · $0.09 · 07:27:06 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">11 turns · $0.10 · 07:27:18 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
+<span class="num">85.7%</span>
+<span class="muted num">0% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
+<span class="num">85.7%</span>
+<span class="muted num">6 turns · $0.07 · 07:27:19 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
+<span class="num">85.7%</span>
+<span class="muted num">8 turns · $0.07 · 07:27:21 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:85.7%"></span></span>
+<span class="num">85.7%</span>
+<span class="muted num">6 turns · $0.07 · 07:27:27 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">binds-through-form</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">checkbox-not-from-kit-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">checkbox-not-from-kit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/terms-consent/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-native-checked</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-checkbox</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>TermsConsent</code> in <code>src/app/terms-consent/</code> with a checkbox labelled "I accept the terms" that the user can check and uncheck. The checked state must be bound to a signal that reflects whether the box is currently ticked, and toggling the box must update that signal. Use the Taiga UI checkbox component.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">binds-through-form</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;ngModel|formControl&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">checkbox-not-from-kit-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;import\\s*\\{[^}]*TuiCheckbox[^}]*\\}\\s*from\\s*[\\x27\\\&quot;]@taiga-ui/kit&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">checkbox-not-from-kit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;import\\s*\\{[^}]*TuiCheckbox[^}]*\\}\\s*from\\s*[\\x27\\\&quot;]@taiga-ui/kit&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/terms-consent/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-native-checked-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;\\[checked\\]&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-native-checked</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;\\[checked\\]&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-checkbox</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiCheckbox&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-8">
+<div class="case-head">
+<h2>15-styling-danger</h2>
+<span class="muted mono">evals/15-styling-danger</span>
+<span class="spacer"></span>
+
+<span class="delta delta-zero">· 0.0 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">10 turns · $0.11 · 07:27:32 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">11 turns · $0.12 · 07:27:32 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">12 turns · $0.13 · 07:27:33 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">8 turns · $0.10 · 07:27:41 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">7 turns · $0.09 · 07:27:49 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">7 turns · $0.09 · 07:27:55 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">component-created</span>  </summary>
+<div class="grader-body">
+<p class="explanation">**/danger-zone/**/*.ts exists as expected</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-bare-destructive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-hardcoded-color</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-destructive-appearance</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Create a new standalone component <code>DangerZone</code> in <code>src/app/danger-zone/</code> for an account-settings page. It shows a "Danger zone" section, set clearly apart from the rest of the page as risky, with a short warning line, a primary "Delete account" button that reads as a destructive action, and a low-emphasis "Cancel" button beside it. Use Taiga UI.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">component-created</span><span class="badge">file_exists</span></div>
+<div class="config"><div class="kv"><span>path</span><code>&quot;**/danger-zone/**/*.ts&quot;</code></div><div class="kv"><span>exists</span><code>true</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-bare-destructive-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;appearance\\]?=[\\\\\\\&quot;\\x27\\s]{0,4}destructive\\b&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-bare-destructive</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;appearance\\]?=[\\\\\\\&quot;\\x27\\s]{0,4}destructive\\b&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-hardcoded-color-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?:color|background|background-color|border|border-color|fill|stroke|box-shadow|outline)\\s*:\\s*(?![^;\\n]*var\\()[^;\\n]*(?:#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|\\b(?:crimson|red)\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-hardcoded-color</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;(?:color|background|background-color|border|border-color|fill|stroke|box-shadow|outline)\\s*:\\s*(?![^;\\n]*var\\()[^;\\n]*(?:#[0-9a-fA-F]{3,8}\\b|\\brgba?\\(|\\b(?:crimson|red)\\b)&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-destructive-appearance</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;appearance\\]?=[\\\\\\\&quot;\\x27\\s]{0,4}(?:\\w+-destructive|negative)\\b&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+</details>
+</article>
+<article class="case" id="case-9">
+<div class="case-head">
+<h2>16-mini-crm</h2>
+<span class="muted mono">evals/16-mini-crm</span>
+<span class="spacer"></span>
+
+<span class="delta delta-pos">↑ +22.2 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">100%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">14 turns · $0.21 · 07:27:59 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-dropdown-directive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-dropdown-directive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-show-loader-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-show-loader</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">skill-fired</span>  <span class="badge">plugin-fired indicator</span></summary>
+<div class="grader-body">
+<p class="explanation">Skill called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-confirm</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-dialog-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-loading-button</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-select</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-error</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">writes-component</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:77.8%"></span></span>
+<span class="num">77.8%</span>
+<span class="muted num">0% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:77.8%"></span></span>
+<span class="num">77.8%</span>
+<span class="muted num">9 turns · $0.17 · 07:28:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-alert-service-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-alert-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-field-error-pipe-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-field-error-pipe</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-data-token</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-invented-dropdown-directive-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">no-invented-dropdown-directive</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-show-loader-edit</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Edit called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">no-show-loader</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 0..0)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-confirm</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-dialog-service</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-loading-button</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 1x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">uses-notification</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 0x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-select</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-textfield</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">uses-validation-error</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details>
+<details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">writes-component</span>  </summary>
+<div class="grader-body">
+<p class="explanation">Write called 2x (expected 1..∞)</p>
+
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>Build a small single-screen <strong>Contacts</strong> manager (a mini-CRM) and wire it into the app's root route so it renders at <code>/</code>. Make it feel like a real, usable screen — use the UI library's own components for everything (modal dialogs, form fields, validation messages, dropdown/select, buttons, notifications) and prefer the library's primitives over hand-rolled HTML controls or custom CSS.</p>
+<p>Features:</p>
+<ol>
+<li><p>&lt;strong&gt;Contact list.&lt;/strong&gt; Show a list of contacts, seeded with 2–3 examples. Each contact has a full name, an email, and a role (one of: Owner, Editor, Viewer). Show a friendly empty state when there are no contacts.</p>
+</li>
+<li><p>&lt;strong&gt;Add contact (modal dialog with a form that returns a value).&lt;/strong&gt; An "Add contact" button opens a &lt;strong&gt;modal dialog&lt;/strong&gt; containing a reactive form:</p>
+<ul>
+<li>a name field,</li>
+<li>an email field that is required and must be a valid email, showing an inline validation error message when invalid,</li>
+<li>a role picker (a dropdown/select of the three roles).
+The dialog has "Save" and "Cancel". "Save" is blocked while the form is invalid; pressing it runs a simulated async save (~1 second) during which the Save button shows a <strong>loading</strong> state, then the dialog closes and <strong>returns the new contact</strong> to the caller, which appends it to the list. "Cancel" closes the dialog without changes.</li>
+</ul>
+</li>
+<li><p>&lt;strong&gt;Delete with confirmation + notification.&lt;/strong&gt; Each contact row has a "Delete" action that first asks the user to &lt;strong&gt;confirm&lt;/strong&gt; in a dialog; only on confirmation is the contact removed, after which a brief &lt;strong&gt;success notification&lt;/strong&gt; is shown.</p>
+</li>
+</ol>
+<p>Keep everything in standalone components under <code>src/app/</code>. The result must compile and run.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-alert-service-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiAlertService&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-alert-service</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiAlertService&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-field-error-pipe-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiFieldError&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-field-error-pipe</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiFieldError&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-data-token-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TUI_DIALOG_DATA|MAT_DIALOG_DATA&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-data-token</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TUI_DIALOG_DATA|MAT_DIALOG_DATA&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-dropdown-directive-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiTextfieldDropdown&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-invented-dropdown-directive</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiTextfieldDropdown&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-show-loader-edit</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Edit&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;\\[showLoader\\]&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">no-show-loader</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;\\[showLoader\\]&quot;</code></div><div class="kv"><span>min</span><code>0</code></div><div class="kv"><span>max</span><code>0</code></div><div class="kv"><span>arm</span><code>&quot;both&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">skill-fired</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Skill&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;taiga-ui(?!-)&quot;</code></div><div class="kv"><span>arm</span><code>&quot;with-only&quot;</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-confirm</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TUI_CONFIRM|TuiConfirmService&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-dialog-service</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiDialogService&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-loading-button</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiButtonLoading&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-notification</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;TuiNotificationService|TuiToastService|tuiToast&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-select</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tuiSelect|TuiSelectDirective|TuiDataListWrapper&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-textfield</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;[Tt]ui-?[Tt]extfield&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">uses-validation-error</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;tui-error|TuiError&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
+</div>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">writes-component</span><span class="badge">tool_used</span></div>
+<div class="config"><div class="kv"><span>tool</span><code>&quot;Write&quot;</code></div><div class="kv"><span>input_match</span><code>&quot;@Component&quot;</code></div><div class="kv"><span>min</span><code>1</code></div></div>
 </div>
 </details>
 </article>
