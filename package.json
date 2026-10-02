@@ -20,6 +20,11 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "eval": "evals/run.sh"
+    "eval": "evals/run.sh",
+    "eval:quick": "evals/run.sh --ablation none",
+    "eval:smoke": "EVAL_MODEL=haiku evals/run.sh --ablation none --runs 1",
+    "eval:clean": "evals/clean.sh",
+    "lint:evals": "node evals/lint.mjs",
+    "tier1": "node evals/tier1/build-check.mjs"
   }
 }

@@ -6,4 +6,4 @@ runs: 3
 plugins: [../../taiga-ui-setup]
 append_system_prompt: "You are running in a sandbox. If a command fails or is denied, do not debug the environment or retry variations — stop and tell the user the exact command to run."
 ---
-Add Taiga UI to this Angular project.
+Add Angular Material to this project.
